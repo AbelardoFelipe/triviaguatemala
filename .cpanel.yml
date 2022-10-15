@@ -3,4 +3,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home2/piezadig/public_html/triviaguatemala/
     - /bin/cp -R /home2/piezadig/triviaguatemala/public/. $DEPLOYPATH
-    # copia recursiva al directorio public
+    # copia recursiva al directorio public_html
