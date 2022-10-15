@@ -39,8 +39,20 @@ nav{
     border: 1px solid black;
     padding: 10px;
     top: 65px;
-    cursor: pointer;
 }
+.menu-lateral ul li:hover{
+    background-color: var(--celeste);
+}
+.menu-lateral ul li a{
+    display: grid;
+    grid-template-columns: 15% 80%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
+.menu-lateral ul li a i{ font-size: 1.5rem;}
+.menu-lateral ul li a p{ font-size: 1.2rem;}
 .menu-lateral label {
     box-sizing: border-box;
     display: inline-block;
@@ -52,6 +64,7 @@ nav{
     text-align: center;
     user-select: none;
     font-size: 2rem;
+    cursor: pointer;
   }
 
 .menu-user{ 
@@ -69,4 +82,38 @@ nav{
     color: white;
     font-size: 2rem;
     justify-content: flex-end;
+}
+.menu-login{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    list-style: none;
+}
+.menu-login a {
+    text-decoration: none;
+    color: white;
+}
+.welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.welcome a{
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 30px;
+    border-radius: 10px;
+    margin: 0px 20px 0;
+    background: var(--azul);
+}
+.welcome a:hover{
+    background: var(--celeste);
+}
+.welcome-1  h1{
+    font-size: 4rem;;
+    color: white;
+    text-shadow: 1px 4px 10px black;
 }

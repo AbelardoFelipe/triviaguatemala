@@ -7,10 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Trivia Guatemala</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,36 +27,40 @@
         <nav>
             <div class="menu">
                 <div></div>
+                @auth
+                    <div class="menu-lateral">
+                        <input id="menu-lateral" name="" type="checkbox" value="" />
+                        <label for="menu-lateral"> ☰ </label>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-home"> </i>  <p>Inicio</p></a></li>
+                            <li><a href="#"><i class="fas fa-user"> </i>  <p>Mi perfil</p></a></li>
+                            <li><a href="#"><i class="fas fa-search"> </i> <p>Buscar amigos</p></a></li>
+                            <li><a href="#"><i class="fas fa-chart-bar"> </i> <p>Ranking jugadores</p></a></li>
+                            <li><a href="#"><i class="fas fa-cog"> </i> <p>Configuraciones</p></a></li>
+                            
 
-                <div class="menu-lateral">
-                    <input id="menu-lateral" name="" type="checkbox" value="" />
-                    <label for="menu-lateral"> ☰ </label>
-                    <ul>
-                        <li>Link 1</li>
-                        <li>Link 2</li>
-                        <li>Link 3</li>
-                        <li>
-                            <div class="" >
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Cerrar sesion') }}
+                            <li>
+                                <a class="" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt"></i><p>{{ __('Cerrar sesion') }}</p>
                                 </a>
-    
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                            </li>
+                        </ul>
+                    </div>
+                @else
+                    <div></div>    
+                @endauth    
 
-                @auth
+                @auth    
                     <div class="menu-user">
                         <a id="" class="" href="#" role="button" >
                             {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
                         </a>
                     </div>
+                @else
+                    <div></div>        
                 @endauth
 
                 <a class="menu-titulo" href="{{ url('/') }}">
@@ -62,22 +69,10 @@
                 
 
                 <div class="menu-datos" >
-                    <ul class="">
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
+                    <ul>
+                        @auth
                             <p>Nivel</p>
-                        @endguest
+                        @endauth
 
                     </ul>
                 </div>
