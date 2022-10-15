@@ -21,24 +21,48 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav>
+            <div class="menu">
+                <div></div>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
+                <div class="menu-lateral">
+                    <input id="menu-lateral" name="" type="checkbox" value="" />
+                    <label for="menu-lateral"> ☰ </label>
+                    <ul>
+                        <li>Link 1</li>
+                        <li>Link 2</li>
+                        <li>Link 3</li>
+                        <li>
+                            <div class="" >
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Cerrar sesion') }}
+                                </a>
+    
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                     </ul>
+                </div>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
+                @auth
+                    <div class="menu-user">
+                        <a id="" class="" href="#" role="button" >
+                            {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
+                        </a>
+                    </div>
+                @endauth
+
+                <a class="menu-titulo" href="{{ url('/') }}">
+                    Trivia Guatemala
+                </a>
+                
+
+                <div class="menu-datos" >
+                    <ul class="">
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -52,26 +76,12 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                            <p>Nivel</p>
                         @endguest
+
                     </ul>
                 </div>
+
             </div>
         </nav>
 
