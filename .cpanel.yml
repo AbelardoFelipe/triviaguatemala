@@ -1,6 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/piezadig/public_html/trivia/
-    - /bin/cp -R -u /home2/piezadig/trivia/public/. $DEPLOYPATH
-    # copia recursiva al directorio public
+    - export DEPLOYPATH=/home2/piezadig/public_html/triviaguatemala/
+    - /bin/cp -R -u /home2/piezadig/triviaguatemala/public/. $DEPLOYPATH
