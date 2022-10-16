@@ -2,5 +2,6 @@
 
 @foreach($preguntasArray as $pregunta)
     <ul>
-    <li>{{$pregunta->pregunta}}</li>
+        <li>{{$pregunta->pregunta}}</li>
+    </ul>
 @endforeach
