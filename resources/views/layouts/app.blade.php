@@ -7,10 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Trivia Guatemala</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,57 +24,73 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav>
+            <div class="menu">
+                <div></div>
+                @auth
+                    <div class="menu-lateral">
+                        <input id="menu-lateral" name="" type="checkbox" value="" />
+                        <label for="menu-lateral"> ☰ </label>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-home"> </i>  <p>Inicio</p></a></li>
+                            <li><a href="#"><i class="fas fa-user"> </i>  <p>Mi perfil</p></a></li>
+                            <li><a href="#"><i class="fas fa-search"> </i> <p>Buscar amigos</p></a></li>
+                            <li><a href="#"><i class="fas fa-chart-bar"> </i> <p>Ranking jugadores</p></a></li>
+                            <li><a href="#"><i class="fas fa-cog"> </i> <p>Configuraciones</p></a></li>
+                            
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                            <li>
+                                <a class="" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt"></i><p>{{ __('Cerrar sesion') }}</p>
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </li>
-                        @endguest
-                    </ul>
+                        </ul>
+                    </div>
+                @else
+                    <div></div>    
+                @endauth    
+
+                @auth    
+                    <div class="menu-user">
+                        <a id="" class="" href="#" role="button" >
+                            {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
+                        </a>
+                    </div>
+                @else
+                    <div></div>        
+                @endauth
+
+                <a class="menu-titulo" href="{{ url('/') }}">
+                    Trivia Guatemala
+                </a>
+                
+
+                <div class="menu-datos" >
+                     @auth
+                        <div class="menu-datos-1">
+                            <p>Puntos</p>
+                            <i class="fas fa-star"></i>
+                            <p>10</p>
+                        </div>                            
+                        <div class="menu-datos-2">
+                            <div class="menu-datos-2A">
+                                <p>Nivel</p>   
+                                <i class="fas fa-trophy"></i>
+                                <p>1/10</p>
+                            </div> 
+                            <div class="menu-datos-2B">
+                                <div id="progressBar">
+                                    <div id="progressBarFill"></div>     
+                                </div>
+                            </div>
+                        </div>                            
+                    @endauth
+                    
                 </div>
+
             </div>
         </nav>
 
