@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pregunta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class PreguntaController extends Controller
 {
@@ -14,7 +15,9 @@ class PreguntaController extends Controller
      */
     public function index()
     {
-        //
+        $preguntas = Http::get('ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
+        $preguntasArray = $preguntas->json();
+        return view('preguntas', compact('preguntasArray'));
     }
 
     /**
