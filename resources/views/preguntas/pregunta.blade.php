@@ -14,6 +14,9 @@
                         <li><button class="button-respuesta">{{$preguntasArray['respuesta_2']['text']}}</button></li>
                         <li><button class="button-respuesta">{{$preguntasArray['respuesta_3']['text']}}</button></li>
                     </ul>
+                    <div class="siguiente-pregunta">
+                        <button class="btn-siguiente-pregunta">Siguiente</button>
+                    </div>
                 </div>
             </div>
         </div>
