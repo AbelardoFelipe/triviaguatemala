@@ -2,8 +2,7 @@
 
 @section('content')
         <div class="container-preguntas">    
-            <div class="container-play">
-                
+            <div class="container-play">                                           
                 <div class="avatar-display">
                     <h1>¡Juguemos!</h1>
                 </div>
@@ -15,7 +14,7 @@
                         <li><button class="button-respuesta">{{$preguntasArray['respuesta_3']['text']}}</button></li>
                     </ul>
                     <div class="siguiente-pregunta">
-                        <button class="btn-siguiente-pregunta">Siguiente</button>
+                        <a href="{{URL::to('/preguntas/'.++$contador)}}" class="btn-siguiente-pregunta">Siguiente</a>
                     </div>
                 </div>
             </div>

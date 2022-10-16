@@ -18,8 +18,9 @@ class PreguntaController extends Controller
     {
         $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
         $preguntasArray = $preguntas->json();
+        $contador = 1;
         //dd($preguntasArray);
-        return view('preguntas.pregunta', compact('preguntasArray'));
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador'));
         
     }
 
@@ -63,7 +64,7 @@ class PreguntaController extends Controller
      */
     public function edit(Pregunta $pregunta)
     {
-        //
+        
     }
 
     /**
@@ -73,9 +74,14 @@ class PreguntaController extends Controller
      * @param  \App\Models\Pregunta  $pregunta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pregunta $pregunta)
+    public function update($id)
     {
-        //
+        //echo $id;
+        $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
+        $preguntasArray = $preguntas->json();
+        $contador = $id;
+        //dd($preguntasArray);
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador'));
     }
 
     /**
