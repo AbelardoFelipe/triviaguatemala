@@ -1,6 +1,123 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+:root{
+    --azul: #049DD9;
+    --celeste: #04B2D9;
+    --amarillo: #F2B705; 
+    --mostaza: #F29F05;
+    --cafes: #A67F37;
+
+}
+
 body{
-    background: url(/images/fondo.jpg?ac6440b2508f4f353a837e005f1d23f9) no-repeat  center center fixed;
+    background: url(/images/fondo.jpg?7a7c612dae986cdcfbde57c39e802258) no-repeat  center center fixed;
     background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background: var(--azul);
+}
+.menu{
+    display: grid;
+    grid-template-columns: 5% 10% 15% 25% 40% 5%;
+}
+.menu-lateral, .menu-titulo, .menu-datos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-lateral ul{
+    display: none;
+}
+.menu-lateral input{ display: none;}
+.menu-lateral input:checked ~ ul{
+    display: block;
+    position: absolute;
+    background: var(--azul);
+    color: white;
+    width: 250px;
+    left: 0;
+    border: 1px solid black;
+    padding: 10px;
+    top: 65px;
+}
+.menu-lateral ul li:hover{
+    background-color: var(--celeste);
+}
+.menu-lateral ul li a{
+    display: grid;
+    grid-template-columns: 15% 80%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
+.menu-lateral ul li a i{ font-size: 1.5rem;}
+.menu-lateral ul li a p{ font-size: 1.2rem;}
+.menu-lateral label {
+    box-sizing: border-box;
+    display: inline-block;
+    color: white;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-weight: bold;
+    text-align: center;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+.menu-user{ 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}  
+.menu-user a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+.menu-titulo{
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    justify-content: flex-end;
+}
+.menu-login{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    list-style: none;
+}
+.menu-login a {
+    text-decoration: none;
+    color: white;
+}
+.welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.welcome a{
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 30px;
+    border-radius: 10px;
+    margin: 0px 20px 0;
+    background: var(--azul);
+}
+.welcome a:hover{
+    background: var(--celeste);
+}
+.welcome-1  h1{
+    font-size: 4rem;;
+    color: white;
+    text-shadow: 1px 4px 10px black;
 }
 
