@@ -76,12 +76,24 @@ class PreguntaController extends Controller
      */
     public function update($id)
     {
-        //echo $id;
+
+        if($id <= 10){
+            //echo $id;
         $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
         $preguntasArray = $preguntas->json();
         $contador = $id;
         //dd($preguntasArray);
         return view('preguntas.pregunta', compact('preguntasArray', 'contador'));
+        }else{
+        $id = 1;  
+        $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
+        $preguntasArray = $preguntas->json();
+        $contador = $id;
+        //dd($preguntasArray);
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador'));
+        }
+
+        
     }
 
     /**
