@@ -1,6 +1,6 @@
-@extends('layout.app')
+@extends('layouts.app')
 
-@section('preguntas')
+@section('content')
     <main class="">
         <div class="container-preguntas">    
             <div class="container-play">

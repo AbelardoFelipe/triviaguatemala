@@ -21,6 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/play.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">

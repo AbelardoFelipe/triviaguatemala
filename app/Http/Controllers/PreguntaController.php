@@ -19,7 +19,7 @@ class PreguntaController extends Controller
         $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
         $preguntasArray = $preguntas->json();
         //dd($preguntasArray);
-        return view('preguntas', compact('preguntasArray'));
+        return view('preguntas.pregunta', compact('preguntasArray'));
         
     }
 
