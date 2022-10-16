@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <main class="">
         <div class="container-preguntas">    
             <div class="container-play">
                 <h1>Juguemos</h1>
@@ -18,5 +17,4 @@
                 </div>
             </div>
         </div>
-    </main>
 @endsection
