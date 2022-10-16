@@ -14,7 +14,7 @@
                         <li><button class="button-respuesta">{{$preguntasArray['respuesta_3']['text']}}</button></li>
                     </ul>
                     <div class="siguiente-pregunta">
-                        <a href="{{URL::to('/preguntas/'.++$contador)}}" class="btn-siguiente-pregunta">Siguiente</a>
+                        <button type="button" class="btn-siguiente-pregunta"  onclick="window.location.href='{{URL::to('/preguntas/'.++$contador)}}';" >Siguiente</button>
                     </div>
                 </div>
             </div>
