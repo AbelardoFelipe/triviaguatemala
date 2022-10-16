@@ -69,3 +69,10 @@
 .btn-siguiente-pregunta:hover{
     border: 3px solid #a67f37;
 }
+
+.btn-siguiente-pregunta:disabled,
+.btn-siguiente-pregunta[disabled]{
+  border: 1px solid #999999;
+  background-color: #ffd96680;
+  color: #666666;
+}
