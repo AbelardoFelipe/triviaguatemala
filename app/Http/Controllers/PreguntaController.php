@@ -13,6 +13,7 @@ class PreguntaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+   
     public function index()
     {
         $preguntas = Http::get('ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
