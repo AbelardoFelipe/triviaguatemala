@@ -3,9 +3,9 @@
 @section('content')
         <div class="container-preguntas">    
             <div class="container-play">
-                <h1>Juguemos</h1>
+                
                 <div class="avatar-display">
-        
+                    <h1>¡Juguemos!</h1>
                 </div>
                 <div class="preguntas-display">
                     <h2>{{$preguntasArray['pregunta']}}</h2>

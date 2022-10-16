@@ -1,3 +1,15 @@
 .container-preguntas{
-    border:1px solide red;
+    width: 80%;
+    height: 80vh;
+    margin: 2rem auto;
+    border:1px solid red;
+}
+
+.container-play{
+    display: flex;
+}
+
+.avatar-display{
+    width: 600px;
+    border:1px solid blue;
 }
