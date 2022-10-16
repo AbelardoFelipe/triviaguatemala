@@ -16,9 +16,11 @@ class PreguntaController extends Controller
    
     public function index()
     {
-        $preguntas = Http::get('ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
+        $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
         $preguntasArray = $preguntas->json();
+        //dd($preguntasArray);
         return view('preguntas', compact('preguntasArray'));
+        
     }
 
     /**
