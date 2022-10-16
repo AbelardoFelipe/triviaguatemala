@@ -69,12 +69,26 @@
                 
 
                 <div class="menu-datos" >
-                    <ul>
-                        @auth
-                            <p>Nivel</p>
-                        @endauth
-
-                    </ul>
+                     @auth
+                        <div class="menu-datos-1">
+                            <p>Puntos</p>
+                            <i class="fas fa-star"></i>
+                            <p>10</p>
+                        </div>                            
+                        <div class="menu-datos-2">
+                            <div class="menu-datos-2A">
+                                <p>Nivel</p>   
+                                <i class="fas fa-trophy"></i>
+                                <p>1/10</p>
+                            </div> 
+                            <div class="menu-datos-2B">
+                                <div id="progressBar">
+                                    <div id="progressBarFill"></div>     
+                                </div>
+                            </div>
+                        </div>                            
+                    @endauth
+                    
                 </div>
 
             </div>

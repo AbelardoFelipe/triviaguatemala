@@ -1,4 +1,5 @@
 // require('./bootstrap');
+// Seccion animacion de avatar
 var canvas = document.getElementById('boy')
 var c_boy = canvas.getContext('2d')
 c_boy.shadowColor = "black"
@@ -25,3 +26,11 @@ function avatar_boy_idle(){
     c_boy.clearRect(50, 50, 400, 400)
     c_boy.drawImage(images_boy[i], 50,50,400,400)
 }   
+// termina seccion editar avatar
+
+const progressBarFill = document.getElementById('progressBarFill');
+
+let questionCounter = 8;
+const MAX_QUESTIONS = 10;
+
+ progressBarFill.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
