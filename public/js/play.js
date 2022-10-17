@@ -11,18 +11,17 @@ btn.addEventListener("click", ()=>{
 
         BTN_NEXT_QUESTION.disabled=false;
         siguiente_e.classList.add("fas");
-        siguiente_e.classList.add("fa-check");     
+        siguiente_e.classList.add("fa-check");
+        siguiente_e.classList.add("pregunta-ok");    
 
     }else if (is_correct == 0){
-        siguiente_e.classList.remove("fas");
-        siguiente_e.classList.remove("fa-check");
-        siguiente_e.classList.add("far");
+        siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-times");
+        siguiente_e.classList.add("pregunta-error");               
     }else{
-        /* siguiente_e.classList.remove("fas");
+        siguiente_e.classList.remove("fas");
         siguiente_e.classList.remove("fa-check"); 
-        siguiente_e.classList.remove("fa-solid");
-        siguiente_e.classList.remove("fa-x"); */
+        siguiente_e.classList.remove("fa-times");
     }
 
 });
