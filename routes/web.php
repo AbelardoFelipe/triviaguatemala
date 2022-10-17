@@ -24,13 +24,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-/* Route::get('/preguntas', function () {
-    return view('preguntas');
-}); */
-
 Route::get('/preguntas', [App\Http\Controllers\PreguntaController::class, 'index'])->name('index');
 Route::get('/preguntas/{id}', [App\Http\Controllers\PreguntaController::class, 'update'])->name('update');
-/*Route::get('/dashboard/usuarios/crear', 'UsuarioController@create')->name('crear');
-Route::post('/dashboard/usuarios/guardar', 'UsuarioController@store')->name('guardar');
-Route::post('/dashboard', 'UsuarioController@update')->name('index');
-Route::get('/dashboard/usuarios/{id}/eliminar', 'UsuarioController@destroy')->name('eliminar'); */
+
