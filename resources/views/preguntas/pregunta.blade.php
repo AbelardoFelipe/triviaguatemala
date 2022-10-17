@@ -14,7 +14,8 @@
                         <li><button class="button-respuesta">{{$preguntasArray['respuesta_3']['text']}}</button></li>
                     </ul>
                     <div class="siguiente-pregunta">
-                        <button type="button" disabled class="btn-siguiente-pregunta" onclick="window.location.href='{{URL::to('/preguntas/'.++$contador)}}';" >Siguiente</button>
+                        @php if($contador >= 10) $contador=1; else ++$contador @endphp
+                        <button type="button" class="btn-siguiente-pregunta" onclick="window.location.href='{{URL::to('/preguntas/'.$contador)}}';" >Siguiente</button>
                     </div>
                 </div>
             </div>
