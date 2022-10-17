@@ -21,8 +21,8 @@ btn.addEventListener("click", ()=>{
     }else if (is_correct == 0){
         /* siguiente_e.classList.remove("fas");
         siguiente_e.classList.remove("fa-check");  */
-        siguiente_e.classList.add("fas");
-        siguiente_e.classList.add("fa-x");
+        siguiente_e.classList.add("far fa-times");
+        siguiente_e.classList.add("fa-times");
     }else{
         /* siguiente_e.classList.remove("fas");
         siguiente_e.classList.remove("fa-check"); 
