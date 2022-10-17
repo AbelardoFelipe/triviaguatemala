@@ -85,5 +85,7 @@
             @yield('content')
         </main>
     </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/play.js') }}" defer></script>
 </body>
 </html>

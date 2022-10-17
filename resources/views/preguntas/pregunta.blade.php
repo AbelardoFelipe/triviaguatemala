@@ -9,9 +9,9 @@
                 <div class="preguntas-display">
                     <h2>{{$preguntasArray['pregunta']}}</h2>
                     <ul class="preguntas-list">
-                        <li><button class="button-respuesta">{{$preguntasArray['respuesta_1']['text']}}</button></li>
-                        <li><button class="button-respuesta">{{$preguntasArray['respuesta_2']['text']}}</button></li>
-                        <li><button class="button-respuesta">{{$preguntasArray['respuesta_3']['text']}}</button></li>
+                        <li><button class="button-respuesta" data-is-correct="{{$preguntasArray['respuesta_1']['is_correct']}}">{{$preguntasArray['respuesta_1']['text']}}</button></li>
+                        <li><button class="button-respuesta" data-is-correct="{{$preguntasArray['respuesta_2']['is_correct']}}">{{$preguntasArray['respuesta_2']['text']}}</button></li>
+                        <li><button class="button-respuesta" data-is-correct="{{$preguntasArray['respuesta_2']['is_correct']}}">{{$preguntasArray['respuesta_3']['text']}}</button></li>
                     </ul>
                     <div class="siguiente-pregunta">
                         @php if($contador >= 10) $contador=1; else ++$contador @endphp
