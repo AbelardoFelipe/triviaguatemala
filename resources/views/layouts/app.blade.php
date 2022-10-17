@@ -66,15 +66,12 @@
                     Trivia Guatemala
                 </a>
                 
-
-                <div class="menu-datos" >
-                    <ul>
-                        @auth
-                            <p>Nivel</p>
-                        @endauth
-
-                    </ul>
-
+                @auth
+                    <div class="menu-datos" >
+                    
+                        
+                        <ul>
+                            <p>Nivel</p>                
                             <li>
                                 <a class="" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt"></i><p>{{ __('Cerrar sesion') }}</p>
@@ -85,8 +82,8 @@
                             </li>
                         </ul>
                     </div>
-                @else
-                    <div></div>    
+                    @else
+                        <div></div>    
                 @endauth    
 
                 @auth    
