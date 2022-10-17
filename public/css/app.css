@@ -9,7 +9,7 @@
 }
 
 body{
-    background: url(/images/fondo.jpg?7a7c612dae986cdcfbde57c39e802258) no-repeat  center center fixed;
+    background: url(../images/fondo.jpg?7a7c612dae986cdcfbde57c39e802258) no-repeat  center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -177,5 +177,6 @@ nav{
     height: 0.6em;
     background-color: var(--mostaza);
     width: 0%;
+
 }
 

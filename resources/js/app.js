@@ -1,4 +1,5 @@
 // require('./bootstrap');
+
 // Seccion animacion de avatar
 var canvas = document.getElementById('boy')
 var c_boy = canvas.getContext('2d')
@@ -34,3 +35,4 @@ let questionCounter = 8;
 const MAX_QUESTIONS = 10;
 
  progressBarFill.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
+

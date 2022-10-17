@@ -21,6 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/play.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -37,7 +38,42 @@
                             <li><a href="#"><i class="fas fa-search"> </i> <p>Buscar amigos</p></a></li>
                             <li><a href="#"><i class="fas fa-chart-bar"> </i> <p>Ranking jugadores</p></a></li>
                             <li><a href="#"><i class="fas fa-cog"> </i> <p>Configuraciones</p></a></li>
-                            
+                            <li>
+                                <a class="" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt"></i><p>{{ __('Cerrar sesion') }}</p>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                @else
+                    <div></div>    
+                @endauth    
+
+                @auth    
+                    <div class="menu-user">
+                        <a id="" class="" href="#" role="button" >
+                            {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
+                        </a>
+                    </div>
+                @else
+                    <div></div>        
+                @endauth
+
+                <a class="menu-titulo" href="{{ url('/') }}">
+                    Trivia Guatemala
+                </a>
+                
+
+                <div class="menu-datos" >
+                    <ul>
+                        @auth
+                            <p>Nivel</p>
+                        @endauth
+
+                    </ul>
 
                             <li>
                                 <a class="" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -98,5 +134,7 @@
             @yield('content')
         </main>
     </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/play.js') }}" defer></script>
 </body>
 </html>
