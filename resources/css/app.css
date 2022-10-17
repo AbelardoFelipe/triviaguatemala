@@ -117,3 +117,62 @@ nav{
     color: white;
     text-shadow: 1px 4px 10px black;
 }
+
+.dashboard{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 80vh;
+}
+.dash-1{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.dash-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dash-2 a{
+    text-decoration: none;
+    font-size: 7rem;
+    color: green;
+}
+.menu-datos{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+.menu-datos-1{
+    display: flex;
+    align-items: center;
+}
+.menu-datos-1 i, .menu-datos-2 i{
+    color: var(--mostaza);
+    font-size: 1.4rem;
+    margin: 0 10px;
+}
+.menu-datos-2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.menu-datos-2A, .menu-datos-2B{
+    display: flex;
+    align-items: center;
+}
+
+#progressBar {
+    width: 10rem;
+    height: 0.5rem;
+    border: 0.2rem solid var(--mostaza);
+    margin-bottom: 1.5rem;
+    background-color: white;
+}
+#progressBarFill {
+    height: 0.6em;
+    background-color: var(--mostaza);
+    width: 0%;
+}

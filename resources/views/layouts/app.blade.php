@@ -38,8 +38,6 @@
                             <li><a href="#"><i class="fas fa-search"> </i> <p>Buscar amigos</p></a></li>
                             <li><a href="#"><i class="fas fa-chart-bar"> </i> <p>Ranking jugadores</p></a></li>
                             <li><a href="#"><i class="fas fa-cog"> </i> <p>Configuraciones</p></a></li>
-                            
-
                             <li>
                                 <a class="" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt"></i><p>{{ __('Cerrar sesion') }}</p>
@@ -76,6 +74,57 @@
                         @endauth
 
                     </ul>
+
+                            <li>
+                                <a class="" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt"></i><p>{{ __('Cerrar sesion') }}</p>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                @else
+                    <div></div>    
+                @endauth    
+
+                @auth    
+                    <div class="menu-user">
+                        <a id="" class="" href="#" role="button" >
+                            {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
+                        </a>
+                    </div>
+                @else
+                    <div></div>        
+                @endauth
+
+                <a class="menu-titulo" href="{{ url('/') }}">
+                    Trivia Guatemala
+                </a>
+                
+
+                <div class="menu-datos" >
+                     @auth
+                        <div class="menu-datos-1">
+                            <p>Puntos</p>
+                            <i class="fas fa-star"></i>
+                            <p>10</p>
+                        </div>                            
+                        <div class="menu-datos-2">
+                            <div class="menu-datos-2A">
+                                <p>Nivel</p>   
+                                <i class="fas fa-trophy"></i>
+                                <p>1/10</p>
+                            </div> 
+                            <div class="menu-datos-2B">
+                                <div id="progressBar">
+                                    <div id="progressBarFill"></div>     
+                                </div>
+                            </div>
+                        </div>                            
+                    @endauth
+                    
                 </div>
 
             </div>
