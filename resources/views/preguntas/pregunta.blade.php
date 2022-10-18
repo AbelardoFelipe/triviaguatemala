@@ -5,6 +5,7 @@
             <div class="container-play">                                           
                 <div class="avatar-display">
                     <h1>¡Juguemos!</h1>
+                    <canvas id="boy" width="300" height="500"></canvas>
                 </div>
                 <div class="preguntas-display">
                     <h2>{{$preguntasArray['pregunta']}}</h2>

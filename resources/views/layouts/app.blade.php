@@ -52,39 +52,8 @@
                     <div></div>    
                 @endauth    
 
-                @auth    
-                    <div class="menu-user">
-                        <a id="" class="" href="#" role="button" >
-                            {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
-                        </a>
-                    </div>
-                @else
-                    <div></div>        
-                @endauth
-
-                <a class="menu-titulo" href="{{ url('/') }}">
-                    Trivia Guatemala
-                </a>
+               
                 
-                @auth
-                    <div class="menu-datos" >
-                    
-                        
-                        <ul>
-                            <p>Nivel</p>                
-                            <li>
-                                <a class="" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt"></i><p>{{ __('Cerrar sesion') }}</p>
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    @else
-                        <div></div>    
-                @endauth    
 
                 @auth    
                     <div class="menu-user">

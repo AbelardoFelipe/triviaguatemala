@@ -19,8 +19,6 @@
         </style>
     </head>
     <body class="">
-        
-
         <div class="welcome">
             <div class="welcome-1">
                 <h1>Trivia Guatemala</h1>
@@ -39,10 +37,6 @@
                     @endif
                 </div>
             @endif
-
-            
-            
-            
         </div>
     </body>
 </html>
