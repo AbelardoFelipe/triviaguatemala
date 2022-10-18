@@ -7,13 +7,13 @@
                     <h1>¡Juguemos!</h1>
                     <div class="container-message-avatar">
                     
-                        <div class="dialog_Box message-avatar-correcto">
+                        <div class="dialog-box message-avatar-correcto">
                             <span class="dialog">¡Correcto! sigue así.</span>
                         </div>
                             
-                        <div class="dialog_Box message-avatar-incorrecto">
+                        <!-- <div class="dialog-box message-avatar-incorrecto">
                             <span class="dialog">¡No es Correcto! intenta otra vez.</span>
-                        </div>
+                        </div> -->
                         
                     </div>
                     <canvas id="boy" width="300" height="500"></canvas>

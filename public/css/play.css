@@ -105,3 +105,40 @@
   background-color: #e4e4e490;
   color: #666666;
 }
+
+.container-message-avatar{
+    position: relative;
+}
+
+.dialog{ 
+    border: solid 2px transparent;
+    border-radius: 15px;
+    padding: 25px;
+    display: none;
+    position: absolute;
+    font-size: 1.2em;
+    background-color: #049dd9;
+    color: #ffffff;
+    top: -40px;
+    right: 15%;
+    width: 192px;
+    height: 50px;
+    box-shadow: 2px 3px 4px #4b4b4b;
+
+}
+
+.dialog-box:after {
+    display: none;
+    content: "";
+    position: absolute;
+   top: 60px;
+   right: 45%;   
+   border-top: 20px solid red;
+   border-top-color: #049dd9;
+   border-left: 20px solid transparent;
+   border-right: 20px solid transparent;
+}
+
+.dialog-box-active{
+    display: inline-block;
+}
