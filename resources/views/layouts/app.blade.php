@@ -31,7 +31,7 @@
                         <input id="menu-lateral" name="" type="checkbox" value="" />
                         <label for="menu-lateral"> ☰ </label>
                         <ul>
-                            <li><a href="#"><i class="fas fa-home"> </i>  <p>Inicio</p></a></li>
+                            <li><a href="{{ url('/home') }}"><i class="fas fa-home"> </i>  <p>Inicio</p></a></li>
                             <li><a href="#"><i class="fas fa-user"> </i>  <p>Mi perfil</p></a></li>
                             <li><a href="#"><i class="fas fa-search"> </i> <p>Buscar amigos</p></a></li>
                             <li><a href="#"><i class="fas fa-chart-bar"> </i> <p>Ranking jugadores</p></a></li>
@@ -63,7 +63,7 @@
                     <div></div>        
                 @endauth
 
-                <a class="menu-titulo" href="{{ url('/') }}">
+                <a class="menu-titulo" href="{{ url('/home') }}">
                     Trivia Guatemala
                 </a>
                 

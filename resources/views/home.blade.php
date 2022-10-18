@@ -11,7 +11,7 @@
                 {{ session('status') }}
             </div>
         @endif --}}
-        <a href="#"><i class="fas fa-play-circle"></i></a>
+        <a href="{{ url('/preguntas') }}"><i class="fas fa-play-circle"></i></a>
     </div>
 </div>
 @endsection
