@@ -139,6 +139,6 @@
    border-right: 20px solid transparent;
 }
 
-.dialog-box-active{
+.dialog-box-active .dialog-box-active:after{
     display: inline-block;
 }
