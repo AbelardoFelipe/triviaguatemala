@@ -16,6 +16,10 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+
+                <div>
+                    <img src="../images/avatars/{{auth()->user()->avatar}}" alt="Foto" width="100px" height="100px">
+                </div>
             </div>
         </div>
     </div>
