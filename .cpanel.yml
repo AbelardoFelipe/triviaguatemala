@@ -3,4 +3,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home2/piezadig/public_html/triviaguatemala
     - /bin/cp -R -u /home2/piezadig/triviaguatemala/public/. $DEPLOYPATH
+    #ruta actualizada
 
