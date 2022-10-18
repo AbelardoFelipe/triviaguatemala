@@ -1,15 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-:root{
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito';
+}
+
+:root {
     --azul: #049DD9;
     --celeste: #04B2D9;
     --amarillo: #F2B705; 
     --mostaza: #F29F05;
     --cafes: #A67F37;
-
 }
 
 body{
-    background: url(/images/fondo.jpg?7a7c612dae986cdcfbde57c39e802258) no-repeat  center center fixed;
+    background: url(../images/fondo.jpg?7a7c612dae986cdcfbde57c39e802258) no-repeat  center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -120,7 +126,6 @@ nav{
     color: white;
     text-shadow: 1px 4px 10px black;
 }
-
 .dashboard{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -178,5 +183,162 @@ nav{
     height: 0.6em;
     background-color: var(--mostaza);
     width: 0%;
+
 }
 
+.content {
+    background-color: white;
+    padding: 25px;
+    font-family: montserrat;
+    font-size: 40px;
+    font-weight: 600;
+    mix-blend-mode: lighten;
+    text-align: center;
+    border-radius: 5px;
+}
+.links {
+    margin-top: 25px;
+}
+.linkregister {
+    border: 1px solid blue;
+    border-radius: 15px;
+    text-decoration: none;
+    padding: 5px 15px;
+    transition: 0.2s;
+}
+
+/*Register*/
+.contentform {
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    width: 400px;
+}
+.contentformreset {
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+    width: 700px;
+}
+.titleregister{
+    text-align: left;
+    padding-top: 20px;
+}
+.formregister {
+    width: 100%;
+    text-align: center;
+}
+.container{
+    margin: 25px;
+}
+.name, .apellido, .fecha_nacimiento, .email, .password{
+    width: 100%;
+    margin-top: 45px;
+    height: 30px;
+}
+
+#name, #apellido, #fecha_nacimiento, #email, #password {
+    width: 80%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid gray;
+    outline: 0;
+    color: gray;
+}
+
+i {
+    padding-top: 7.5px;
+    height: 25px;
+    width: 30px;
+    background-color: #04b2d9;
+    color: white;
+}
+.buttonsregister {
+    width: 80%;
+    padding: 30px;
+    display: flex;
+    gap: 2.5rem;
+}
+.buttonsreset {
+    padding-top: 30px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+.buttonreset {
+    background-color: #04b2d9;
+    color: white;
+    width: 200px;
+    height: 35px;
+    border-radius: 7px;
+}
+.buttonlogin {
+    background-color: #F2B705;
+    width: 120px;
+    height: 35px;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+.buttonregister {
+    background-color: #04b2d9;
+    color: white;
+    width: 120px;
+    height: 35px;
+    border-radius: 7px;
+}
+.buttonlogin:hover {
+    box-shadow: 4px 4px 15px #F2B705;
+}
+.buttonregister:hover {
+    box-shadow: 4px 4px 15px #04b2d9;
+}
+.buttonreset:hover {
+    box-shadow: 4px 4px 15px #04b2d9;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.forgotpassword {
+    padding-bottom: 25px;
+}
+
+.titleregister {
+    color: #04b2d9;
+}
+.forgot {
+    color: #04b2d9;
+}
+.message {
+    margin-top: 25px;
+}
+#success {
+    padding-bottom: 25px;
+}
+
+.file {
+    position: relative;
+    margin: auto;
+    margin-top: 40px;
+    padding: 10px;
+    width: 150px;
+    background-color: #04b2d9;
+    text-align: center;
+}
+.file:hover {
+    box-shadow: 4px 4px 15px #04b2d9;
+}
+#avatar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+#text {
+    text-align: center;
+    color: white;
+}
