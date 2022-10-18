@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Controllers\PreguntaController;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/preguntas', [App\Http\Controllers\PreguntaController::class, 'index'])->name('index');
+Route::get('/preguntas/{id}', [App\Http\Controllers\PreguntaController::class, 'update'])->name('update');
+

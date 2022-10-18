@@ -229,4 +229,8 @@ return [
 
     ],
 
+    //'base_uri' => env('BASE_URI', 'http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4'),
+    //'httl_client' => env('HTTP_CLIENT', 'GuzzleHttp'),
+    //'httl_client' => env('HTTP_CLIENT', 'Http_Client'),
+
 ];
