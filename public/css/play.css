@@ -107,6 +107,7 @@
 }
 
 .container-message-avatar{
+    display: none;
     position: relative;
 }
 
@@ -114,7 +115,7 @@
     border: solid 2px transparent;
     border-radius: 15px;
     padding: 25px;
-    display: none;
+    display: block;
     position: absolute;
     font-size: 1.2em;
     background-color: #049dd9;
@@ -127,8 +128,10 @@
 
 }
 
+.dialog-box {display: none;}
+
 .dialog-box:after {
-    display: none;
+    display: block;
     content: "";
     position: absolute;
    top: 60px;
@@ -139,6 +142,6 @@
    border-right: 20px solid transparent;
 }
 
-.dialog-box-active .dialog-box-active:after{
-    display: inline-block;
+.avatar-active{
+    display: block !important;
 }

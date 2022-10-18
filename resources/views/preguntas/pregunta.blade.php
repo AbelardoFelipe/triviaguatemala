@@ -5,16 +5,13 @@
             <div class="container-play">                                           
                 <div class="avatar-display">
                     <h1>¡Juguemos!</h1>
-                    <div class="container-message-avatar">
-                    
+                    <div id="dialog-avatar" class="container-message-avatar">                    
                         <div id="message-avatar-correcto" class="dialog-box">
                             <span class="dialog">¡Correcto! sigue así.</span>
-                        </div>
-                            
+                        </div>                            
                         <div id="message-avatar-incorrecto" class="dialog-box">
                             <span class="dialog">¡No es Correcto! intenta otra vez.</span>
-                        </div>
-                        
+                        </div>                        
                     </div>
                     <canvas id="boy" width="300" height="500"></canvas>
                 </div>
