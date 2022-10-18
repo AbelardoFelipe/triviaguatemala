@@ -1,11 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Nunito';
-}
-
 :root {
     --azul: #049DD9;
     --celeste: #04B2D9;
@@ -208,6 +202,11 @@ nav{
 }
 
 /*Register*/
+#form-login-register{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
 .contentform {
     background-color: white;
     text-align: center;
@@ -246,7 +245,7 @@ nav{
     color: gray;
 }
 
-i {
+.contentform i  {
     padding-top: 7.5px;
     height: 25px;
     width: 30px;

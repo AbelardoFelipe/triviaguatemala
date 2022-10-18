@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div id="form-login-register">
     <div class="contentform">
         <form method="POST" action="{{ route('register') }}" class="formregister">
             <div class="container">
@@ -9,7 +9,7 @@
 
             @csrf
             <div class="name">
-                <i class="fa-solid fa-user"></i>
+                <i class="fas fa-user"></i>
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nombres:">
 
                 @error('name')
@@ -20,7 +20,7 @@
             </div>
 
             <div class="apellido">
-                <i class="fa-solid fa-user"></i>
+                <i class="fas fa-user"></i>
                 <input id="apellido" type="text" class="form-control @error('apellido') is-invalid @enderror" name="apellido" value="{{ old('apellido') }}" required autocomplete="apellido" placeholder="Apellidos:">
 
                 @error('apellido')
@@ -31,7 +31,7 @@
             </div>
 
             <div class="fecha_nacimiento">
-                <i class="fa-solid fa-calendar"></i>
+                <i class="far fa-calendar-alt"></i>
                 <input id="fecha_nacimiento" type="date" class="form-control @error('fecha_nacimiento') is-invalid @enderror" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required autocomplete="fecha_nacimiento">
 
                 @error('fecha_nacimiento')
@@ -42,7 +42,7 @@
             </div>
 
             <div class="email">
-                <i class="fa-solid fa-envelope"></i>
+                <i class="fas fa-envelope"></i>
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Correo electrónico:">
 
                 @error('email')
@@ -53,7 +53,7 @@
             </div>
 
             <div class="password">
-                <i class="fa-solid fa-lock"></i>
+                <i class="fas fa-lock"></i>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Contraseña">
 
                 @error('password')
@@ -64,7 +64,7 @@
             </div>
 
             <div class="password">
-                <i class="fa-solid fa-lock"></i>
+                <i class="fas fa-lock"></i>
                 <input id="password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar contraseña">
             </div>
 
@@ -87,5 +87,6 @@
                 </div>
             </div>
         </form>
-        </div>
+    </div>
+</div>
 @endsection
