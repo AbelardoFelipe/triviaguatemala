@@ -18,7 +18,7 @@ btn.addEventListener("click", ()=>{
             setTimeout(() => {
                 DIALOG_AVATAR.classList.remove('avatar-active');        
                 DIALOG_AVATAR.children[0].classList.remove('avatar-active');
-              }, "1500")
+              }, "2000")
                   
         BTN_NEXT_QUESTION.disabled=false;
 
@@ -32,7 +32,7 @@ btn.addEventListener("click", ()=>{
             setTimeout(() => {
                 DIALOG_AVATAR.classList.remove('avatar-active');        
                 DIALOG_AVATAR.children[1].classList.remove('avatar-active');
-              }, "1500")
+              }, "2000")
         
     }else{
         siguiente_e.classList.remove("fas");
