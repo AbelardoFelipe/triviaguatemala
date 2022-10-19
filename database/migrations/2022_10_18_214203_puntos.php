@@ -15,14 +15,16 @@ class Puntos extends Migration
     {
         Schema::create('puntos', function (Blueprint $table) {
         $table->engine = 'InnoDB';
-        $table->id();
-        $table->integer('punto');
-        $table->integer('nivel');
+        $table->bigIncrements('id');
+        $table->foreignId('user_id')
+        ->nullable()
+        ->constrained('users')
+        ->onUpdate('cascade')
+        ->onDelete('cascade');
+        $table->integer('punto')->nullable();
+        $table->integer('nivel')->nullable();
         $table->integer('intento')->nullable();
         $table->integer('numero_pregunta')->nullable();
-        $table->foreign('user_id')
-        ->references('id')->on('users')
-        ->onDelete('cascade');
         $table->rememberToken();
         $table->timestamps();
     });
