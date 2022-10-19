@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Http;
 
 class PreguntaController extends Controller
 {
+
+    protected $preguntas;
+
+    public function __construct(Pregunta $preguntas){
+        $this->alumnos = $alumnos;
+    }
+
     /**
      * Display a listing of the resource.
      *
