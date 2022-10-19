@@ -42,3 +42,25 @@ btn.addEventListener("click", ()=>{
 
 });
 });
+
+//Ejemplo de envio fetch al servidor
+/* const data = new URLSearchParams("nombre=miguel angel&nacionalidad=español");
+data.append('otroDato', 'otro valor');
+fetch('../post.php', {
+   method: 'POST',
+   body: data
+})
+.then(function(response) {
+   if(response.ok) {
+       return response.text()
+   } else {
+       throw "Error en la llamada Ajax";
+   }
+
+})
+.then(function(texto) {
+   console.log(texto);
+})
+.catch(function(err) {
+   console.log(err);
+}); */
