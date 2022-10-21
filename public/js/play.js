@@ -13,7 +13,7 @@ btn.addEventListener("click", ()=>{
         siguiente_e.classList.add("fa-check");
         siguiente_e.classList.add("pregunta-ok"); 
 
-        sendDetailPoint(1,1,"",1,5);
+        sendDetailPoint(1,"",1,5);
         
         DIALOG_AVATAR.classList.add('avatar-active');        
         DIALOG_AVATAR.children[0].classList.add('avatar-active');
@@ -47,27 +47,27 @@ btn.addEventListener("click", ()=>{
 
 //Ejemplo de envio fetch al servidor
 
-function sendDetailPoint(user=1,numero_pregunta,nivel="",intento="",punto=""){
- const data = new URLSearchParams("user_id="+user+"&numero_pregunta="+numero_pregunta+"&nivel="+nivel+"&intento="+intento+"&punto="+punto);
-fetch('/preguntas', {
-    headers: {
-        'X-CSRF-TOKEN': window.CSRF_TOKEN
-    },
-   method: 'post',
-   body:data
-})
-.then(function(response) {
-   if(response.ok) {
-       return response.text();
-   } else {
-       throw "Error en la llamada Ajax";
-   }
+async function sendDetailPoint(numero_pregunta,nivel="",intento="",punto=""){
+ 
+ let punteo = {    
+    numero_pregunta: numero_pregunta,
+    nivel: nivel,
+    intento: intento,
+    punto: punto
+  };
 
+await fetch('/preguntas', {
+    headers: {
+        'X-CSRF-TOKEN': window.CSRF_TOKEN,
+        "Content-type": "application/json; charset=UTF-8",
+        "Access-Control-Allow-Origin": "*"
+    },
+   method: 'put',   
+   body: JSON.stringify(punteo)
 })
-.then(function(texto) {
-   console.log(texto);
-})
-.catch(function(err) {
-   console.log(err);
+.then(function (response) {
+    return response.json();
+}).then(function (data) {
+    console.log('Async Fetch', data);
 });
 }

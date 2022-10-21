@@ -14,7 +14,7 @@ class Puntos extends Migration
     public function up()
     {
         Schema::create('puntos', function (Blueprint $table) {
-        $table->engine = 'InnoDB';
+        //$table->engine = 'InnoDB';
         $table->bigIncrements('id');
         $table->foreignId('user_id')
         ->nullable()

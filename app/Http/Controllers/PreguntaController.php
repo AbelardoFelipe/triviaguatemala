@@ -53,14 +53,14 @@ class PreguntaController extends Controller
     {
         //dd($request);
         $pregunta = new Pregunta;
-        $pregunta->user_id = $request->user_id;
+        //$pregunta->user_id = 1;
         $pregunta->numero_pregunta = $request->numero_pregunta;
         $pregunta->nivel = $request->nivel;
         $pregunta->intento = $request->intento;
         $pregunta->punto = $request->punto;
         $pregunta->save();
-        $cool="todo bien";
-        return redirect('preguntas.pregunta', compact('cool'));
+        
+        return true;
     }
 
     /**
