@@ -9,12 +9,14 @@ class Pregunta extends Model
 {
     use HasFactory;
 
-    protected $table = "preguntas";
+    protected $table = 'puntos';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
 
-    protected $fillable = ['punot', 'nivel', 'intento', 'numero_pregunta'];
-    protected $hidden = ['id','user_id'];
+    //protected $fillable = ['punot', 'nivel', 'intento', 'numero_pregunta'];
+    //protected $hidden = ['id','user_id'];
 
-    public function obtenerAPregunta()
+    /* public function obtenerAPregunta()
         {
             return Pregunta::all();
         }
@@ -22,6 +24,6 @@ class Pregunta extends Model
     public function obtenerPreguntaPorId($id)
         {
             return Pregunta::find($id);
-        }
+        } */
 
 }

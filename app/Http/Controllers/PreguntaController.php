@@ -49,7 +49,15 @@ class PreguntaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pregunta = new Pregunta;
+        $pregunta->user_id = $request->user_id;
+        $pregunta->numero_pregunta = $request->numero_pregunta;
+        $pregunta->nivel = $request->nivel;
+        $pregunta->intento = $request->intento;
+        $pregunta->punto = $request->punto;
+        $pregunta->save();
+
+        return redirect('/dashboard/pregunta');
     }
 
     /**
