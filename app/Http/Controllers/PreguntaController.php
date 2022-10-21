@@ -53,7 +53,7 @@ class PreguntaController extends Controller
     {
         //dd($request);
         $pregunta = new Pregunta;
-        //$pregunta->user_id = 1;
+        $pregunta->user_id = 1;
         $pregunta->numero_pregunta = $request->numero_pregunta;
         $pregunta->nivel = $request->nivel;
         $pregunta->intento = $request->intento;
