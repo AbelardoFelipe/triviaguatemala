@@ -21,10 +21,10 @@ class Puntos extends Migration
         ->constrained('users')
         ->onUpdate('cascade')
         ->onDelete('cascade');
-        $table->integer('punto')->nullable();
-        $table->integer('nivel')->nullable();
-        $table->integer('intento')->nullable();
         $table->integer('numero_pregunta')->nullable();
+        $table->integer('nivel')->nullable();                
+        $table->integer('intento')->nullable();
+        $table->integer('punto')->nullable();
         $table->rememberToken();
         $table->timestamps();
     });

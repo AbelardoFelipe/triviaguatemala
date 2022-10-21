@@ -12,7 +12,7 @@ class PreguntaController extends Controller
     protected $preguntas;
 
     public function __construct(Pregunta $preguntas){
-        $this->alumnos = $alumnos;
+        $this->preguntas = $preguntas;
     }
 
     /**
