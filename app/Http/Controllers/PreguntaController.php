@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Pregunta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 
 class PreguntaController extends Controller
 {
 
-    protected $preguntas;
+    /* protected $preguntas;
 
     public function __construct(Pregunta $preguntas){
         $this->preguntas = $preguntas;
-    }
+    } */
 
     /**
      * Display a listing of the resource.
@@ -49,6 +51,7 @@ class PreguntaController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $pregunta = new Pregunta;
         $pregunta->user_id = $request->user_id;
         $pregunta->numero_pregunta = $request->numero_pregunta;
@@ -56,8 +59,8 @@ class PreguntaController extends Controller
         $pregunta->intento = $request->intento;
         $pregunta->punto = $request->punto;
         $pregunta->save();
-
-        return redirect('/dashboard/pregunta');
+        $cool="todo bien";
+        return redirect('preguntas.pregunta', compact('cool'));
     }
 
     /**

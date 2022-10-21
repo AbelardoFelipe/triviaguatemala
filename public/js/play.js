@@ -12,6 +12,8 @@ btn.addEventListener("click", ()=>{
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-check");
         siguiente_e.classList.add("pregunta-ok"); 
+
+        sendDetailPoint(1,1,"",1,5);
         
         DIALOG_AVATAR.classList.add('avatar-active');        
         DIALOG_AVATAR.children[0].classList.add('avatar-active');
@@ -44,15 +46,19 @@ btn.addEventListener("click", ()=>{
 });
 
 //Ejemplo de envio fetch al servidor
-/* const data = new URLSearchParams("nombre=miguel angel&nacionalidad=español");
-data.append('otroDato', 'otro valor');
-fetch('../post.php', {
-   method: 'POST',
-   body: data
+
+function sendDetailPoint(user=1,numero_pregunta,nivel="",intento="",punto=""){
+ const data = new URLSearchParams("user_id="+user+"&numero_pregunta="+numero_pregunta+"&nivel="+nivel+"&intento="+intento+"&punto="+punto);
+fetch('/preguntas', {
+    headers: {
+        'X-CSRF-TOKEN': window.CSRF_TOKEN
+    },
+   method: 'post',
+   body:data
 })
 .then(function(response) {
    if(response.ok) {
-       return response.text()
+       return response.text();
    } else {
        throw "Error en la llamada Ajax";
    }
@@ -63,4 +69,5 @@ fetch('../post.php', {
 })
 .catch(function(err) {
    console.log(err);
-}); */
+});
+}

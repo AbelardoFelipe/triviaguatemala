@@ -4,7 +4,7 @@
         <div class="container-preguntas">    
             <div class="container-play">                                           
                 <div class="avatar-display">
-                    <h1>¡Juguemos!</h1>
+                    <h1>¡Juguemos!{{$cool ?? ''}}</h1>
                     <div id="dialog-avatar" class="container-message-avatar">                    
                         <div id="message-avatar-correcto" class="dialog-box">
                             <span class="dialog">¡Correcto! sigue así.</span>
@@ -16,7 +16,7 @@
                     <canvas id="boy" width="300" height="500"></canvas>
                 </div>
                 <div class="preguntas-display">
-                    <h2>{{$preguntasArray['pregunta']}}</h2>
+                    <h2 data-numero-pregunta="{{$contador}}">{{$preguntasArray['pregunta']}}</h2>
                     <ul class="preguntas-list">
                         <li><button class="button-respuesta" data-is-correct="{{$preguntasArray['respuesta_1']['is_correct']}}">{{$preguntasArray['respuesta_1']['text']}}</button><i class=""></i></li>
                         <li><button class="button-respuesta" data-is-correct="{{$preguntasArray['respuesta_2']['is_correct']}}">{{$preguntasArray['respuesta_2']['text']}}</button><i class=""></i></li>

@@ -95,10 +95,13 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            @yield('content')            
         </main>
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/play.js') }}" defer></script>
+    <script type="text/javascript">
+        window.CSRF_TOKEN = '{{ csrf_token() }}';
+    </script>
 </body>
 </html>
