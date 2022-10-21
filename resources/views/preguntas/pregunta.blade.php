@@ -4,7 +4,7 @@
         <div class="container-preguntas">    
             <div class="container-play">                                           
                 <div class="avatar-display">
-                    <h1>¡Juguemos!{{$cool ?? ''}}</h1>
+                    <h1>¡Juguemos! {{PreguntaContllor::show()->punto}}</h1>
                     <div id="dialog-avatar" class="container-message-avatar">                    
                         <div id="message-avatar-correcto" class="dialog-box">
                             <span class="dialog">¡Correcto! sigue así.</span>

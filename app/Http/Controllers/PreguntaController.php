@@ -71,7 +71,7 @@ class PreguntaController extends Controller
      */
     public function show(Pregunta $pregunta)
     {
-        //
+        
     }
 
     /**

@@ -55,7 +55,7 @@
 
                 @auth    
                     <div class="menu-user">
-                        <a id="" class="" href="#" role="button" >
+                        <a id="{{ Auth::user()->id}}" class="{{Auth::user()->apellido}}" href="#" role="button" >
                             {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
                         </a>
                     </div>
