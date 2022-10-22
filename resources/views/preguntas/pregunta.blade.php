@@ -23,8 +23,8 @@
                         <li><button class="button-respuesta" data-click="false" data-is-correct="{{$preguntasArray['respuesta_3']['is_correct']}}">{{$preguntasArray['respuesta_3']['text']}}</button><i class=""></i></li>
                     </ul>
                     <div class="siguiente-pregunta">
-                        @php if($contador ?? 1 >= 10) $contador=1; else ++$contador @endphp
-                        <button id="btn-siguiente-pregunta" type="button" class="btn-siguiente-pregunta" onclick="window.location.href='{{URL::to('/preguntas/'.$contador)}}';" disabled>Siguiente {{$contador}}</button>
+                        @php if($contador ?? 1 >= 10) $contador; else $contador=1; @endphp
+                        <button id="btn-siguiente-pregunta" type="button" class="btn-siguiente-pregunta" onclick="window.location.href='{{URL::to('/preguntas/'.++$contador)}}';" disabled>Siguiente {{$contador}}</button>
                     </div>
                 </div>
             </div>

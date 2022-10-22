@@ -105,15 +105,17 @@ class PreguntaController extends Controller
         $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
         $preguntasArray = $preguntas->json();
         $contador = $id;
+        $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
         //dd($preguntasArray);
-        return view('preguntas.pregunta', compact('preguntasArray', 'contador'));
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto'));
         }else{
         $id = 1;  
         $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
         $preguntasArray = $preguntas->json();
         $contador = $id;
+        $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
         //dd($preguntasArray);
-        return view('preguntas.pregunta', compact('preguntasArray', 'contador'));
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto'));
         }
 
         
