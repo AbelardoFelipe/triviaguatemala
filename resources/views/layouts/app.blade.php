@@ -9,6 +9,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="/js/avatar.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
@@ -32,7 +33,7 @@
                         <label for="menu-lateral"> ☰ </label>
                         <ul>
                             <li><a href="{{ url('/home') }}"><i class="fas fa-home"> </i>  <p>Inicio</p></a></li>
-                            <li><a href="#"><i class="fas fa-user"> </i>  <p>Mi perfil</p></a></li>
+                            <li><a href="{{ url('/perfil') }}"><i class="fas fa-user"> </i>  <p>Mi perfil</p></a></li>
                             <li><a href="#"><i class="fas fa-search"> </i> <p>Buscar amigos</p></a></li>
                             <li><a href="#"><i class="fas fa-chart-bar"> </i> <p>Ranking jugadores</p></a></li>
                             <li><a href="#"><i class="fas fa-cog"> </i> <p>Configuraciones</p></a></li>
@@ -57,6 +58,7 @@
                     <div class="menu-user">
                         <a id="" data-user-id="{{ Auth::user()->id}}" class="{{Auth::user()->apellido}}" href="#" role="button" >
                             {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
+                            <img src="{{ Auth::user()->avatar }}" alt="avatar" width="60px" height="66px">
                         </a>
                     </div>
                 @else

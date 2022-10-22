@@ -68,12 +68,11 @@
                 <input id="password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar contraseña">
             </div>
 
-                <div class="file">
-                    <p id="text">Seleccionar avatar</p>
-                    <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" required autocomplete="avatar">
-                </div>
-
-            <div class="buttonsregister">
+            <div class="file">
+                <p id="text">Elige un avatar</p>
+            </div>
+            
+            <div class="buttonsregister1">
                 <div>
                     @if (Route::has('login'))
                         <button class="buttonlogin">
@@ -86,7 +85,44 @@
                     <button type="submit" class="buttonregister"> {{ __('Registrarme') }} </button>
                 </div>
             </div>
+            
+            <div id="avatar1">
+                <input id="avatar" type="text" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" autocomplete="avatar">
+                @error('avatar')
+                    <span class="invalid-feedback" role="alert">
+                        <div>{{ $message }}</div>
+                    </span>
+                @enderror
+            </div>
         </form>
+    </div>
+    <div class="avatars">
+
+        <div class="option">
+            <img class="img1" src="/images/avatars/boy/Idle1.png" alt="boy" width="60px" height="66px">
+            <a class="not-active" id="miLink1" href="/images/avatars/boy/Idle1.png"></a>
+            <input type="radio" id="check1" name="radio" onclick="link1()">
+            <label for="check1"></label>
+        </div>
+        <div class="option">
+            <img class="img2" src="/images/avatars/Vaquerito/Idle__000.png" alt="boy" width="60px" height="66px">
+            <a class="not-active" id="miLink2" href="/images/avatars/Vaquerito/Idle__000.png"></a>
+            <input type="radio" id="check2" name="radio" onclick="link2()">
+            <label for="check2"></label>
+        </div>
+        <div class="option">
+            <img class="img3" src="/images/avatars/Vaquerita/Idle1.png" alt="boy" width="60px" height="66px">
+            <a class="not-active" id="miLink3" href="/images/avatars/Vaquerita/Idle1.png"></a>
+            <input type="radio" id="check3" name="radio" onclick="link3()">
+            <label for="check3"></label>
+        </div>
+        <div class="option">
+            <img class="img4" src="/images/avatars/Rosita/Idle1.png" alt="boy" width="60px" height="66px">
+            <a class="not-active" id="miLink4" href="/images/avatars/Rosita/Idle1.png"></a>
+            <input type="radio" id="check4" name="radio" onclick="link4()">
+            <label for="check4"></label>
+        </div>
+
     </div>
 </div>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\update;
 use App\Models\Pregunta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;

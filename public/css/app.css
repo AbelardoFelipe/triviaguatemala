@@ -96,7 +96,7 @@ nav{
     text-decoration: none;
     color: white;
 }
-.welcome{
+.welcome{/***/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,15 +181,35 @@ nav{
 }
 
 .content {
-    background-color: white;
-    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+}
+.contentwelcome {
+    border-radius: 5px;
+    padding: 50px;
     font-family: montserrat;
     font-size: 40px;
-    font-weight: 600;
+    font-weight: 600px;
+    background-color: #fff;
     mix-blend-mode: lighten;
-    text-align: center;
-    border-radius: 5px;
 }
+.contentwelcome2 {
+    width: 100%;
+    text-align: center;
+}
+.btnjugar {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 7px;
+}
+
 .links {
     margin-top: 25px;
 }
@@ -253,10 +273,26 @@ nav{
     color: white;
 }
 .buttonsregister {
-    width: 80%;
+    margin-top: 25px;
     padding: 30px;
     display: flex;
+    gap: 3.2rem;
+}
+.buttonsregister1 {
+    position: relative;
+    top: 85px;
+    width: 80%;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
     gap: 2.5rem;
+}
+.buttonsregister2 {
+    position: relative;
+    top: 85px;
+    width: 80%;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 .buttonsreset {
     padding-top: 30px;
@@ -277,6 +313,17 @@ nav{
     text-decoration: none;
     border: 2px solid black;
     border-radius: 7px;
+}
+.buttoncancelar {
+    background-color: red;
+    width: 120px;
+    height: 35px;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+.cancelar {
+    color: white;
 }
 .buttonregister {
     background-color: #04b2d9;
@@ -316,28 +363,103 @@ a {
 }
 
 .file {
-    position: relative;
-    margin: auto;
-    margin-top: 40px;
-    padding: 10px;
-    width: 150px;
-    background-color: #04b2d9;
-    text-align: center;
+    padding: 5px;
 }
-.file:hover {
-    box-shadow: 4px 4px 15px #04b2d9;
-}
-#avatar {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-}
+
 #text {
     text-align: center;
-    color: white;
+    color: gray;
+}
+
+#avatar {
+    opacity: 0;
+    outline: 0;
+    border: 1px;
+}
+#avatar1 {
+    position: relative;
+    bottom: 620px;
+    outline: 0;
+    border: none;
+    text-align: top;
+}
+.avatars {
+    position: relative;
+    bottom: 85px;
+    margin-left: 30px;
+    text-align: center;
+    display: flex;
+    gap: 30px;
+}
+.img1, .img2, .img3, .img4 {
+    border-radius: 50%;
+    border: 1px solid black;
+    border: none;
+}
+
+.avatar {
+    width: 60px;
+    height: 66px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.not-active { 
+    pointer-events: none; 
+    cursor: default;
+}
+
+
+/***/
+
+.option {
+    width: 60px;
+    height: 66px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.option input {
+    display: none;
+}
+
+.option label {
+    font-family: "Josefin Slab", sans-serif;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.option label::after {
+    content: "";
+    position: absolute;
+    top: -8%;
+    right: -8%;
+    width: 60px;
+    height: 66px;
+    border: 5px solid #049DD9;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.option label::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0.5%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 66px;
+    background-color: #0aac83;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+}
+
+.option input:checked ~ label::after {
+    opacity: 1;
 }
