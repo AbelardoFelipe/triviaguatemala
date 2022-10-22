@@ -24,8 +24,9 @@ class Puntos extends Migration
         $table->integer('numero_pregunta')->nullable();
         $table->integer('nivel')->nullable();                
         $table->integer('intento')->nullable();
-        $table->integer('punto')->nullable();        
-        $table->timestamps();
+        $table->integer('punto')->nullable(); 
+        $table->boolean('aprobado')->nullable(); 
+        $table->timestamps('create_at');
     });
     }
 
