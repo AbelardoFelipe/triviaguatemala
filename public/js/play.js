@@ -60,7 +60,7 @@ btn.addEventListener("click", ()=>{
 
 //Ejemplo de envio fetch al servidor
 
-async function sendDetailPoint(user_id,numero_pregunta,nivel="",intento="",punto=""){
+async function sendDetailPoint(user_id,numero_pregunta,nivel="",intento="",punto=0){
  
  let punteo = {  
     user_id:user_id,  
