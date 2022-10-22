@@ -26,7 +26,7 @@ class Puntos extends Migration
         $table->integer('intento')->nullable();
         $table->integer('punto')->nullable(); 
         $table->boolean('aprobado')->nullable(); 
-        $table->timestamps('create_at');
+        $table->timestamp('created_at')->useCurrent();
     });
     }
 
