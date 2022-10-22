@@ -24,7 +24,7 @@
                     </ul>
                     <div class="siguiente-pregunta">
                         @php if($contador ?? 1 >= 10) $contador=1; else ++$contador @endphp
-                        <button id="btn-siguiente-pregunta" type="button" class="btn-siguiente-pregunta" onclick="window.location.href='{{URL::to('/preguntas/'.$contador)}}';" disabled>Siguiente</button>
+                        <button id="btn-siguiente-pregunta" type="button" class="btn-siguiente-pregunta" onclick="window.location.href='{{URL::to('/preguntas/'.$contador)}}';" disabled>Siguiente {{$contador}}</button>
                     </div>
                 </div>
             </div>

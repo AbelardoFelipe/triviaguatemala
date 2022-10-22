@@ -73,13 +73,13 @@
                         <div class="menu-datos-1">
                             <p>Puntos</p>
                             <i class="fas fa-star"></i>
-                            <p>{{$punto ?? 0}}</p>
+                            <p id="show-puntos">{{$punto ?? 0}}</p>
                         </div>                            
                         <div class="menu-datos-2">
                             <div class="menu-datos-2A">
                                 <p>Nivel</p>   
                                 <i class="fas fa-trophy"></i>
-                                <p data-user-nivel="{{ $punteo[0]->nivel ?? 1}}" data-user-numero_pregunta="{{ $punteo[0]->numero_pregunta ?? 0}}">{{ $punteo[0]->numero_pregunta ?? 0}}/10</p>
+                                <p data-user-nivel="{{ $punteo[0]->nivel ?? 1}}" data-user-numero_pregunta="{{ $punteo[0]->numero_pregunta ?? 0}}"><span id="show-nivel">{{ $punteo[0]->numero_pregunta ?? 0}}</span>/10</p>
                             </div> 
                             <div class="menu-datos-2B">
                                 <div id="progressBar">

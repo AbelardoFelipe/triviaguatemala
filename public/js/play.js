@@ -4,6 +4,8 @@ const DIALOG_AVATAR = document.getElementById('dialog-avatar');
 const USER_ID = document.querySelector('a[data-user-id]');
 const NUMERO_PREGUNTA = document.querySelector('h2[data-user-numero-pregunta]');
 const NIVEL = document.querySelector('p[data-user-nivel]');
+const SHOW_PUNTOS   = document.getElementById('show-puntos');
+//console.log(SHOW_PUNTOS.textContent);
 
 BTNS_RESPONSE.forEach(btn => {
 let siguiente_e = btn.nextSibling;
@@ -16,8 +18,9 @@ btn.addEventListener("click", ()=>{
         siguiente_e.classList.add("fa-check");
         siguiente_e.classList.add("pregunta-ok");
     
-        if(btn.attributes[1].value == "false"){            
-            //sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,1,5);
+        if(btn.attributes[1].value == "false"){                       
+            sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,1,5,1);
+            refresPunto();
             btn.attributes[1].value="true";
         }
 
@@ -36,7 +39,7 @@ btn.addEventListener("click", ()=>{
         siguiente_e.classList.add("pregunta-error");
         
         if(btn.attributes[1].value == "false"){            
-            //sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,1,0);
+            sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,1,0,0);
             btn.attributes[1].value="true";
         }
 
@@ -58,14 +61,15 @@ btn.addEventListener("click", ()=>{
 
 //Envio fetch data al servidor
 
-async function sendDetailPoint(user_id,numero_pregunta,nivel="",intento="",punto=0){
+async function sendDetailPoint(user_id,numero_pregunta,nivel="",intento="",punto=0, aprobado=""){
  
  let punteo = {  
     user_id:user_id,  
     numero_pregunta: numero_pregunta,
     nivel: nivel,
     intento: intento,
-    punto: punto
+    punto: punto,
+    aprobado: aprobado
   };
 
 await fetch('/preguntas', {
@@ -80,6 +84,29 @@ await fetch('/preguntas', {
 .then(function (response) {
     return response.json();
 }).then(function (data) {
-    console.log('Async Fetch', data);
+    console.log('Async Store', data);
 });
 }
+
+async function refresPunto(){
+ 
+    let punteo = {  
+       punto:true    
+    };
+   
+   await fetch('/preguntas/refreshpunto', {
+       headers: {
+           'X-CSRF-TOKEN': window.CSRF_TOKEN,
+           "Content-type": "application/json; charset=UTF-8",
+           "Access-Control-Allow-Origin": "*"
+       },
+      method: 'put',   
+      body: JSON.stringify(punteo)
+   })
+   .then(function (response) {
+       return response.json();
+   }).then(function (data) {
+    SHOW_PUNTOS.textContent=data;
+       console.log('Async Refresh', data);
+   });
+   }

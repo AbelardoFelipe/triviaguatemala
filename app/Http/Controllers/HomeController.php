@@ -34,4 +34,13 @@ class HomeController extends Controller
        //dd($punto);
         return view('home', compact('punteo','punto'));
     }
+
+    public function refresh(Request $request)
+    {
+        //dd($request);
+        //return true;
+        //Refresca el punteo en tiempo real
+        $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
+        return $punto;
+    }
 }

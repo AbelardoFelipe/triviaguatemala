@@ -29,4 +29,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/preguntas', [App\Http\Controllers\PreguntaController::class, 'index'])->name('index');
 Route::get('/preguntas/{id}', [App\Http\Controllers\PreguntaController::class, 'update'])->name('update');
 Route::put('preguntas', [App\Http\Controllers\PreguntaController::class, 'store'])->name('store');
+Route::put('/preguntas/refreshpunto', [App\Http\Controllers\HomeController::class, 'refresh'])->name('refresh');
 
