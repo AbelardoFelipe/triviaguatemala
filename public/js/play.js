@@ -20,7 +20,7 @@ btn.addEventListener("click", ()=>{
     
         if(btn.attributes[1].value == "false"){                       
             sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,1,5,1);
-            refresPunto();
+            refreshPunto();
             btn.attributes[1].value="true";
         }
 
@@ -88,11 +88,11 @@ await fetch('/preguntas', {
 });
 }
 
-async function refresPunto(){
+async function refreshPunto(){
  
-    let punteo = {  
+   /*  let punteo = {  
        punto:true    
-    };
+    }; */
    
    await fetch('/preguntas/refreshpunto', {
        headers: {
@@ -100,8 +100,8 @@ async function refresPunto(){
            "Content-type": "application/json; charset=UTF-8",
            "Access-Control-Allow-Origin": "*"
        },
-      method: 'put',   
-      body: JSON.stringify(punteo)
+      method: 'get'   
+     // body: JSON.stringify(punteo)
    })
    .then(function (response) {
        return response.json();

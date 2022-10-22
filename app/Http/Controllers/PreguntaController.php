@@ -62,8 +62,7 @@ class PreguntaController extends Controller
         $pregunta->nivel = $request->nivel;
         $pregunta->intento = $request->intento;
         $pregunta->punto = $request->punto;
-        $pregunta->aprobado = $request->aprobado;
-        $pregunta->created_at = useCurrent();
+        $pregunta->aprobado = $request->aprobado;        
         $pregunta->save();
         
         return true;

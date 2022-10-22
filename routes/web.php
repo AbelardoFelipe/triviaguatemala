@@ -24,10 +24,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/preguntas/refreshpunto', [App\Http\Controllers\HomeController::class, 'refresh'])->name('refresh');
 
 
 Route::get('/preguntas', [App\Http\Controllers\PreguntaController::class, 'index'])->name('index');
 Route::get('/preguntas/{id}', [App\Http\Controllers\PreguntaController::class, 'update'])->name('update');
+Route::put('/preguntas', [App\Http\Controllers\PreguntaController::class, 'store'])->name('store');
 
 
 Route::get('/perfil', [PerfilController::class, 'editPerfil'])->name('editPerfil')->middleware('auth');
