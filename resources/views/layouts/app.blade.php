@@ -64,7 +64,7 @@
                 @endauth
 
                 <a class="menu-titulo" href="{{ url('/home') }}">
-                    Trivia Guatemala
+                    Trivia Guatemala 
                 </a>
                 
 
@@ -73,7 +73,7 @@
                         <div class="menu-datos-1">
                             <p>Puntos</p>
                             <i class="fas fa-star"></i>
-                            <p>{{ $punteo[0]->punto ?? 0}}</p>
+                            <p>{{$punto ?? 0}}</p>
                         </div>                            
                         <div class="menu-datos-2">
                             <div class="menu-datos-2A">

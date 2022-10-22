@@ -25,13 +25,14 @@ class PreguntaController extends Controller
    
     public function index()
     {
-        $punteoArray = Pregunta::all();
-        $punteo = json_decode($punteoArray);
+        /* $punteoArray = Pregunta::all();
+        $punteo = json_decode($punteoArray); */
         $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
         $preguntasArray = $preguntas->json();
+        $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
         $contador = 1;
-        //dd($preguntasArray);
-        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punteo'));
+        //dd($punteo);
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto'));
         
     }
 

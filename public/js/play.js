@@ -4,23 +4,21 @@ const DIALOG_AVATAR = document.getElementById('dialog-avatar');
 const USER_ID = document.querySelector('a[data-user-id]');
 const NUMERO_PREGUNTA = document.querySelector('h2[data-user-numero-pregunta]');
 const NIVEL = document.querySelector('p[data-user-nivel]');
-var cont = 0;
-console.log(NUMERO_PREGUNTA.dataset.userNumeroPregunta);
 
 BTNS_RESPONSE.forEach(btn => {
 let siguiente_e = btn.nextSibling;
 
 btn.addEventListener("click", ()=>{
-
     let is_correct = btn.dataset.isCorrect;
+    
     if(is_correct == 1){
-        cont++;
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-check");
         siguiente_e.classList.add("pregunta-ok");
-
-        if(cont <=1){
-            sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,cont,5);
+    
+        if(btn.attributes[1].value == "false"){            
+            //sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,1,5);
+            btn.attributes[1].value="true";
         }
 
         DIALOG_AVATAR.classList.add('avatar-active');        
@@ -33,13 +31,13 @@ btn.addEventListener("click", ()=>{
         BTN_NEXT_QUESTION.disabled=false;
 
     }else if (is_correct == 0){
-        cont++;
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-times");
         siguiente_e.classList.add("pregunta-error");
         
-        if(cont <=1){
-            sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,cont,0);
+        if(btn.attributes[1].value == "false"){            
+            //sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,1,0);
+            btn.attributes[1].value="true";
         }
 
         DIALOG_AVATAR.classList.add('avatar-active');        
@@ -58,7 +56,7 @@ btn.addEventListener("click", ()=>{
 });
 });
 
-//Ejemplo de envio fetch al servidor
+//Envio fetch data al servidor
 
 async function sendDetailPoint(user_id,numero_pregunta,nivel="",intento="",punto=0){
  

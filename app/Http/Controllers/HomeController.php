@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pregunta;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,9 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-
+       // $categorias = Categoria::sum('cantidad')->groupBy('categoria')->get();
         $punteoArray = Pregunta::all();
         $punteo = json_decode($punteoArray);
-        return view('home', compact('punteo'));
+        /* $punto = DB::table('puntos')->sum('punto'); */
+        $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
+       //dd($punto);
+        return view('home', compact('punteo','punto'));
     }
 }
