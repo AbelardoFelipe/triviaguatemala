@@ -55,7 +55,7 @@
 
                 @auth    
                     <div class="menu-user">
-                        <a id="{{ Auth::user()->id}}" class="{{Auth::user()->apellido}}" href="#" role="button" >
+                        <a id="" data-user-id="{{ Auth::user()->id}}" class="{{Auth::user()->apellido}}" href="#" role="button" >
                             {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
                         </a>
                     </div>
@@ -73,13 +73,13 @@
                         <div class="menu-datos-1">
                             <p>Puntos</p>
                             <i class="fas fa-star"></i>
-                            <p>10</p>
+                            <p>{{ $punteo[0]->punto ?? 0}}</p>
                         </div>                            
                         <div class="menu-datos-2">
                             <div class="menu-datos-2A">
                                 <p>Nivel</p>   
                                 <i class="fas fa-trophy"></i>
-                                <p>1/10</p>
+                                <p data-user-nivel="{{ $punteo[0]->nivel ?? 1}}" data-user-numero_pregunta="{{ $punteo[0]->numero_pregunta ?? 0}}">{{ $punteo[0]->numero_pregunta ?? 0}}/10</p>
                             </div> 
                             <div class="menu-datos-2B">
                                 <div id="progressBar">

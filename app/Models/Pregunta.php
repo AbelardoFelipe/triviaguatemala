@@ -11,6 +11,5 @@ class Pregunta extends Model
 
     protected $table = 'puntos';
     protected $primaryKey = 'id';
-    public $timestamps = false;
-
+    public $timestamps = true;  
 }

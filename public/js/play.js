@@ -1,6 +1,11 @@
 const BTNS_RESPONSE = document.querySelectorAll('button[data-is-correct]');
 const BTN_NEXT_QUESTION = document.getElementById('btn-siguiente-pregunta');
-const DIALOG_AVATAR =document.getElementById('dialog-avatar');
+const DIALOG_AVATAR = document.getElementById('dialog-avatar');
+const USER_ID = document.querySelector('a[data-user-id]');
+const NUMERO_PREGUNTA = document.querySelector('h2[data-user-numero-pregunta]');
+const NIVEL = document.querySelector('p[data-user-nivel]');
+var cont = 0;
+console.log(NUMERO_PREGUNTA.dataset.userNumeroPregunta);
 
 BTNS_RESPONSE.forEach(btn => {
 let siguiente_e = btn.nextSibling;
@@ -9,12 +14,15 @@ btn.addEventListener("click", ()=>{
 
     let is_correct = btn.dataset.isCorrect;
     if(is_correct == 1){
+        cont++;
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-check");
-        siguiente_e.classList.add("pregunta-ok"); 
+        siguiente_e.classList.add("pregunta-ok");
 
-        sendDetailPoint(1,"",1,5);
-        
+        if(cont <=1){
+            sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,cont,5);
+        }
+
         DIALOG_AVATAR.classList.add('avatar-active');        
         DIALOG_AVATAR.children[0].classList.add('avatar-active');
             setTimeout(() => {
@@ -25,10 +33,15 @@ btn.addEventListener("click", ()=>{
         BTN_NEXT_QUESTION.disabled=false;
 
     }else if (is_correct == 0){
+        cont++;
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-times");
         siguiente_e.classList.add("pregunta-error");
         
+        if(cont <=1){
+            sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,cont,0);
+        }
+
         DIALOG_AVATAR.classList.add('avatar-active');        
         DIALOG_AVATAR.children[1].classList.add('avatar-active');
             setTimeout(() => {
@@ -47,9 +60,10 @@ btn.addEventListener("click", ()=>{
 
 //Ejemplo de envio fetch al servidor
 
-async function sendDetailPoint(numero_pregunta,nivel="",intento="",punto=""){
+async function sendDetailPoint(user_id,numero_pregunta,nivel="",intento="",punto=""){
  
- let punteo = {    
+ let punteo = {  
+    user_id:user_id,  
     numero_pregunta: numero_pregunta,
     nivel: nivel,
     intento: intento,

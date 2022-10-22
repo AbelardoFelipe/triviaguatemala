@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pregunta;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $punteoArray = Pregunta::all();
+        $punteo = json_decode($punteoArray);
+        return view('home', compact('punteo'));
     }
 }
