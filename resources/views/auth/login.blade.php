@@ -7,7 +7,7 @@
             <div class="container">
                 @csrf
 
-                <h1 class="titleregister"> <strong> Registro </strong> </h1>
+                <h1 class="titleregister"> <strong> Login </strong> </h1>
 
                     <div class="email">
                         <i class="fas fa-user"></i>

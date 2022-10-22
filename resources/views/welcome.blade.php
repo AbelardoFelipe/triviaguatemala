@@ -19,24 +19,17 @@
         </style>
     </head>
     <body class="">
-        <div class="welcome">
-            <div class="welcome-1">
+        <div class="content">
+            <div class="contentwelcome">
                 <h1>Trivia Guatemala</h1>
-            </div>
 
-            @if (Route::has('login'))
-                <div class="welcome-2">
-                    @auth
-                        <a href="{{ url('/home') }}" class="">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="">Inicio Sesión</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="">Registrarme</a>
-                        @endif
-                    @endif
+                @if (Route::has('register'))
+                <div class="contentwelcome2">
+                    <a href="{{ route('login') }}" class="btnjugar">Jugar Ahora</a>
                 </div>
-            @endif
+                @endif
+            </div>
+                
         </div>
     </body>
 </html>

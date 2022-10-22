@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\PerfilController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Controllers\PreguntaController;
-use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +25,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/preguntas', [App\Http\Controllers\PreguntaController::class, 'index'])->name('index');
-Route::get('/preguntas/{id}', [App\Http\Controllers\PreguntaController::class, 'update'])->name('update');
+Route::get('/preguntas', [App\Http\Controllers\PreguntaController::class, 'index'])->name('index')->middleware('auth');
+Route::get('/preguntas/{id}', [App\Http\Controllers\PreguntaController::class, 'update'])->name('update')->middleware('auth');
 
+Route::get('/perfil', [PerfilController::class, 'editPerfil'])->name('editPerfil')->middleware('auth');
+Route::post('perfil/{id}', [PerfilController::class, 'updatePerfil'])->name('updatePerfil')->middleware('auth');
