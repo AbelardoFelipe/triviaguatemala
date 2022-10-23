@@ -6,12 +6,14 @@
         <canvas id="boy" width="300" height="500"></canvas>
     </div>
     <div class="dash-2">
-        {{-- @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif --}}
-        <a href="{{ url('/preguntas') }}"><i class="fas fa-play-circle"></i></a>
+        @php
+            if($pregunta == 0){                
+                echo "<a href='./preguntas') }}'> <i class='fas fa-play-circle'></i></a>";
+            }else{             
+                echo "<a href='./preguntas/$pregunta')'><i class='fas fa-play-circle'></i> </a>";
+            }
+            
+        @endphp        
     </div>
 </div>
 @endsection

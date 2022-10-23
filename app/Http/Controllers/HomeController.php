@@ -25,20 +25,16 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-       // $categorias = Categoria::sum('cantidad')->groupBy('categoria')->get();
+    {       
         $punteoArray = Pregunta::all();
-        $punteo = json_decode($punteoArray);
-        /* $punto = DB::table('puntos')->sum('punto'); */
+        $punteo = json_decode($punteoArray);    
         $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
-       //dd($punto);
-        return view('home', compact('punteo','punto'));
+        $pregunta = DB::table('puntos')->where('aprobado', '=', 1)->max('numero_pregunta');
+        return view('home', compact('punteo','punto','pregunta'));
     }
 
     public function refresh(Request $request)
     {
-        //dd($request);
-        //return true;
         //Refresca el punteo en tiempo real
         $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
         return $punto;
