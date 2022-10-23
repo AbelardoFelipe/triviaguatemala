@@ -31,9 +31,10 @@ class PreguntaController extends Controller
         $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
         $preguntasArray = $preguntas->json();
         $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
+        $pregunta = DB::table('puntos')->where('aprobado', '=', 1)->max('numero_pregunta');
         $contador = 1;
         //dd($punteo);
-        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto'));
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta'));
         
     }
 
@@ -106,16 +107,18 @@ class PreguntaController extends Controller
         $preguntasArray = $preguntas->json();
         $contador = $id;
         $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
+        $pregunta = DB::table('puntos')->where('aprobado', '=', 1)->max('numero_pregunta');
         //dd($preguntasArray);
-        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto'));
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta'));
         }else{
         $id = 1;  
         $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
         $preguntasArray = $preguntas->json();
         $contador = $id;
         $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
+        $pregunta = DB::table('puntos')->where('aprobado', '=', 1)->max('numero_pregunta');
         //dd($preguntasArray);
-        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto'));
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta'));
         }
 
         
