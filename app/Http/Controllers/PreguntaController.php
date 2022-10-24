@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PreguntaController extends Controller
 {
@@ -26,13 +27,17 @@ class PreguntaController extends Controller
    
     public function index()
     {
+        // Get the currently authenticated user's ID...
+        $id_auth = Auth::id();
+        //---------------------------------------------
         $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
         $preguntasArray = $preguntas->json();
-        $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
-        $pregunta = DB::table('puntos')->where('aprobado', '=', 1)->max('numero_pregunta');        
+        $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
+        $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta'); 
+        $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();    
         $contador = 1;
         //dd($punteo);
-        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta'));        
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado'));        
     }
 
     /**
@@ -95,21 +100,27 @@ class PreguntaController extends Controller
      */
     public function update($id)
     {
+        // Get the currently authenticated user's ID...
+        $id_auth = Auth::id();
+        //---------------------------------------------
+
         if($id <= 10){
             $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
             $preguntasArray = $preguntas->json();
             $contador = $id;
-            $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
-            $pregunta = DB::table('puntos')->where('aprobado', '=', 1)->max('numero_pregunta');        
-            return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta'));
+            $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
+            $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta');
+            $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();       
+            return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado'));
         }else{
             $id = 1;  
             $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
             $preguntasArray = $preguntas->json();
             $contador = $id;
-            $punto = DB::table('puntos')->where('punto', '=', 5)->sum('punto');
-            $pregunta = DB::table('puntos')->where('aprobado', '=', 1)->max('numero_pregunta');            
-            return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta'));
+            $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
+            $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta');
+            $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();
+            return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado'));
         }        
     }
 

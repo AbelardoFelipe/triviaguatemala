@@ -4,8 +4,15 @@ const DIALOG_AVATAR = document.getElementById('dialog-avatar');
 const USER_ID = document.querySelector('a[data-user-id]');
 const NUMERO_PREGUNTA = document.querySelector('h2[data-user-numero-pregunta]');
 const NIVEL = document.querySelector('p[data-user-nivel]');
-const SHOW_PUNTOS   = document.getElementById('show-puntos');
-//console.log(SHOW_PUNTOS.textContent);
+const SHOW_PUNTOS = document.getElementById('show-puntos');
+const PROGRES_BAR = document.getElementById('progressBarFill');
+const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
+
+progresBar();
+function progresBar(){
+    let fill = (PREGUNTA_APROBADO.dataset.userAprobado*10)+'%';
+    PROGRES_BAR.style.width=fill;
+}
 
 BTNS_RESPONSE.forEach(btn => {
 let siguiente_e = btn.nextSibling;
@@ -21,7 +28,9 @@ btn.addEventListener("click", ()=>{
         if(btn.attributes[1].value == "false"){                       
             sendDetailPoint(USER_ID.dataset.userId,NUMERO_PREGUNTA.dataset.userNumeroPregunta,NIVEL.dataset.userNivel,1,5,1);
             refreshPunto();
-            btn.attributes[1].value="true";
+            BTNS_RESPONSE.forEach(btn_clicked => {
+                btn_clicked.attributes[1].value="true";
+            });
         }
 
         DIALOG_AVATAR.classList.add('avatar-active');        
@@ -30,9 +39,10 @@ btn.addEventListener("click", ()=>{
                 DIALOG_AVATAR.classList.remove('avatar-active');        
                 DIALOG_AVATAR.children[0].classList.remove('avatar-active');
               }, "2000")
-                  
-        BTN_NEXT_QUESTION.disabled=false;
-
+        if(PREGUNTA_APROBADO.dataset.userAprobado < 10){
+            BTN_NEXT_QUESTION.disabled=false;
+        }          
+        
     }else if (is_correct == 0){
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-times");
@@ -89,10 +99,6 @@ await fetch('/preguntas', {
 }
 
 async function refreshPunto(){
- 
-   /*  let punteo = {  
-       punto:true    
-    }; */
    
    await fetch('/preguntas/refreshpunto', {
        headers: {
@@ -106,7 +112,9 @@ async function refreshPunto(){
    .then(function (response) {
        return response.json();
    }).then(function (data) {
-    SHOW_PUNTOS.textContent=data;
+    SHOW_PUNTOS.textContent=data[0];
+    let fill = (data[1]*10)+'%';
+    PROGRES_BAR.style.width=fill;
        console.log('Async Refresh', data);
    });
    }

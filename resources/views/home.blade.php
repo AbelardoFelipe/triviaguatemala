@@ -5,16 +5,15 @@
     <div class="dash-1">
         <img src="" id="humor_personaje" alt="humor">
         <canvas id="boy" width="500" height="500"></canvas>
+          
     </div>
     <div class="dash-2">
-        @php
-            if($pregunta == 0){                
-                echo "<a href='./preguntas') }}'> <i class='fas fa-play-circle'></i></a>";
-            }else{             
-                echo "<a href='./preguntas/$pregunta')'><i class='fas fa-play-circle'></i> </a>";
-            }
-            
-        @endphp        
+        @if($pregunta <10)
+            @php($contador = $pregunta)
+            <a href="{{URL::to('/preguntas/'.++$contador)}}"><i class='fas fa-play-circle'></i> </a>
+        @elseif($pregunta == 10 && $aprobado == 10)
+                <span>Ganaste</span>
+        @endif        
     </div>
 </div>
 @endsection
