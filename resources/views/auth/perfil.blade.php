@@ -1,4 +1,4 @@
-@extends('layouts.acceso')
+@extends('layouts.app')
 
 @section('content')
 <div id="form-login-register">
