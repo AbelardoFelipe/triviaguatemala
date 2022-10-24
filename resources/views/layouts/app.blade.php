@@ -104,7 +104,7 @@
     <script src="/js/dash.js"></script>
     <script src="{{ asset('js/play.js') }}"></script>
     <script type="text/javascript">
-        window.CSRF_TOKEN = '{{ csrf_token() }}';
+        window.CSRF_TOKEN = '{{ csrf_token() }}';//validar token de acceso
     </script>
 </body>
 </html>

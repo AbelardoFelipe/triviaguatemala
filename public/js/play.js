@@ -19,9 +19,10 @@ BTNS_RESPONSE.forEach(btn => {
 let siguiente_e = btn.nextSibling;
 
 btn.addEventListener("click", ()=>{
+    playSoundBtn();
     let is_correct = btn.dataset.isCorrect;
     
-    if(is_correct == 1){
+    if(is_correct == 1){        
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-check");
         siguiente_e.classList.add("pregunta-ok");
@@ -44,7 +45,7 @@ btn.addEventListener("click", ()=>{
             BTN_NEXT_QUESTION.disabled=false;
         }          
         
-    }else if (is_correct == 0){
+    }else if (is_correct == 0){        
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-times");
         siguiente_e.classList.add("pregunta-error");
@@ -120,3 +121,11 @@ async function refreshPunto(){
        console.log('Async Refresh', data);
    });
    }
+
+   function playSoundBtn() {
+    let audio = document.getElementById('btn-click');
+    if (!audio) return; //We exit the function if there is no sound to play
+    audio.currentTime = 0; //We rewind the track if it is currently been playing.
+    audio.play();
+    audio.classList.add('playing');
+}
