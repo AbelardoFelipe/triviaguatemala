@@ -46,7 +46,7 @@ class HomeController extends Controller
         //---------------------------------------------
         //Refresca el punteo en tiempo real
         $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
-        $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();
+        $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();        
         $puntos = [$punto,$aprobado];
         return $puntos;
     }

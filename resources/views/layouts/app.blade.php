@@ -80,7 +80,7 @@
                             <div class="menu-datos-2A">
                                 <p>Nivel</p>   
                                 <i class="fas fa-trophy"></i>
-                                <p data-user-nivel="{{ $punteo[0]->nivel ?? 1}}" data-user-numero_pregunta="{{ ++$pregunta ?? 1}}"><span id="show-nivel">@if($pregunta ?? 1 <=10 ) {{ --$pregunta}} @else {{ $pregunta}} @endif</span>/10</p>
+                                <p data-user-nivel="{{ $punteo[0]->nivel ?? 1}}" data-user-numero_pregunta="{{ $pregunta ?? 0}}"><span id="show-nivel">{{$aprobado}}</span>/10</p>{{-- @if($pregunta ?? 0 <=10 ) {{ $pregunta ?? 0}} @else {{ ++$pregunta}} @endif --}}
                             </div> 
                             <div class="menu-datos-2B">
                                 <div id="progressBar">
@@ -102,8 +102,8 @@
     </div>
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <script src="{{ asset('js/play.js') }}" defer></script>
     <script src="/js/dash.js"></script>
+    <script src="{{ asset('js/play.js') }}"></script>
     <script type="text/javascript">
         window.CSRF_TOKEN = '{{ csrf_token() }}';
     </script>

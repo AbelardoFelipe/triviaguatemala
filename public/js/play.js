@@ -5,6 +5,7 @@ const USER_ID = document.querySelector('a[data-user-id]');
 const NUMERO_PREGUNTA = document.querySelector('h2[data-user-numero-pregunta]');
 const NIVEL = document.querySelector('p[data-user-nivel]');
 const SHOW_PUNTOS = document.getElementById('show-puntos');
+const SHOW_NIVEL = document.getElementById('show-nivel');
 const PROGRES_BAR = document.getElementById('progressBarFill');
 const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
 
@@ -115,6 +116,7 @@ async function refreshPunto(){
     SHOW_PUNTOS.textContent=data[0];
     let fill = (data[1]*10)+'%';
     PROGRES_BAR.style.width=fill;
+    SHOW_NIVEL.textContent=data[1];
        console.log('Async Refresh', data);
    });
    }
