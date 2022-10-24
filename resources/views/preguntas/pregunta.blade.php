@@ -28,7 +28,7 @@
                             <button id="btn-siguiente-pregunta" type="button" class="btn-siguiente-pregunta" onclick="window.location.href='{{URL::to('/preguntas/'.$contador)}}'" disabled>Siguiente</button>                                                    
                         @endif
                     </div>
-                    <audio id="btn-click" src="{{ asset('/sound/008864060_prev.mp3') }}" type="audio/mp3"></audio>
+                    <audio id="btn-click" src="{{ asset('sound/008864060_prev.mp3') }}" type="audio/mp3"></audio>
                 </div>
             </div>
         </div>
