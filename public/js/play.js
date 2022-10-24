@@ -96,7 +96,7 @@ await fetch('/preguntas', {
 .then(function (response) {
     return response.json();
 }).then(function (data) {
-    console.log('Async Store', data);
+    //console.log('Async Store', data);
 });
 }
 
@@ -118,7 +118,7 @@ async function refreshPunto(){
     let fill = (data[1]*10)+'%';
     PROGRES_BAR.style.width=fill;
     SHOW_NIVEL.textContent=data[1];
-       console.log('Async Refresh', data);
+       //console.log('Async Refresh', data);
    });
    }
 
