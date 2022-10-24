@@ -22,7 +22,7 @@ btn.addEventListener("click", ()=>{
     let is_correct = btn.dataset.isCorrect;
     
     if(is_correct == 1){
-        playSoundBtn(e);
+        playSoundBtn();
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-check");
         siguiente_e.classList.add("pregunta-ok");
@@ -46,7 +46,7 @@ btn.addEventListener("click", ()=>{
         }          
         
     }else if (is_correct == 0){
-        playSoundBtn(e);
+        playSoundBtn();
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-times");
         siguiente_e.classList.add("pregunta-error");
@@ -123,7 +123,7 @@ async function refreshPunto(){
    });
    }
 
-   function playSoundBtn(e) {
+   function playSoundBtn() {
     let audio = document.getElementById('btn-click');
     if (!audio) return; //We exit the function if there is no sound to play
     audio.currentTime = 0; //We rewind the track if it is currently been playing.
