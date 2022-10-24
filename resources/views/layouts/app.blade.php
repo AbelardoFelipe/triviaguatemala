@@ -10,6 +10,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="/js/avatar.js"></script>
+    
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
@@ -21,6 +22,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/play.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -51,14 +53,12 @@
                     <div></div>    
                 @endauth    
 
-               
-                
-
                 @auth    
                     <div class="menu-user">
                         <a id="" data-user-id="{{ Auth::user()->id}}" class="{{Auth::user()->apellido}}" href="#" role="button" >
                             {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
-                            <img src="{{ Auth::user()->avatar }}" alt="avatar" width="60px" height="66px">
+                            {{-- <img src="{{ Auth::user()->avatar }}" alt="avatar" width="60px" height="66px"> --}}
+                            <input type="hidden" id="avatar-seleccionado" value="{{ Auth::user()->avatar }}">
                         </a>
                     </div>
                 @else
@@ -69,7 +69,6 @@
                     Trivia Guatemala 
                 </a>
                 
-
                 <div class="menu-datos" >
                      @auth
                         <div class="menu-datos-1">
@@ -92,16 +91,19 @@
                     @endauth
                     
                 </div>
-
             </div>
         </nav>
-
+        @auth
+        <input type="hidden" id="last_loggin" value="{{ Auth::user()->last_loggin }}">
+        @endauth
         <main class="py-4">
             @yield('content')            
         </main>
     </div>
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="{{ asset('js/play.js') }}" defer></script>
+    <script src="/js/dash.js"></script>
     <script type="text/javascript">
         window.CSRF_TOKEN = '{{ csrf_token() }}';
     </script>

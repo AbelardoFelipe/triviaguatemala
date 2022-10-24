@@ -100,25 +100,25 @@
 
         <div class="option">
             <img class="img1" src="/images/avatars/boy/Idle1.png" alt="boy" width="60px" height="66px">
-            <a class="not-active" id="miLink1" href="/images/avatars/boy/Idle1.png"></a>
+            <a class="not-active" id="miLink1" href="/images/avatars/boy/Idle__1.png"></a>
             <input type="radio" id="check1" name="radio" onclick="link1()">
             <label for="check1"></label>
         </div>
         <div class="option">
-            <img class="img2" src="/images/avatars/Vaquerito/Idle__000.png" alt="boy" width="60px" height="66px">
-            <a class="not-active" id="miLink2" href="/images/avatars/Vaquerito/Idle__000.png"></a>
+            <img class="img2" src="/images/avatars/Vaquerito/Idle__1.png" alt="Vaquerito" width="60px" height="66px">
+            <a class="not-active" id="miLink2" href="/images/avatars/Vaquerito/Idle__1.png"></a>
             <input type="radio" id="check2" name="radio" onclick="link2()">
             <label for="check2"></label>
         </div>
         <div class="option">
-            <img class="img3" src="/images/avatars/Vaquerita/Idle1.png" alt="boy" width="60px" height="66px">
-            <a class="not-active" id="miLink3" href="/images/avatars/Vaquerita/Idle1.png"></a>
+            <img class="img3" src="/images/avatars/Vaquerita/Idle__1.png" alt="Vaquerita" width="60px" height="66px">
+            <a class="not-active" id="miLink3" href="/images/avatars/Vaquerita/Idle__1.png"></a>
             <input type="radio" id="check3" name="radio" onclick="link3()">
             <label for="check3"></label>
         </div>
         <div class="option">
-            <img class="img4" src="/images/avatars/Rosita/Idle1.png" alt="boy" width="60px" height="66px">
-            <a class="not-active" id="miLink4" href="/images/avatars/Rosita/Idle1.png"></a>
+            <img class="img4" src="/images/avatars/Rosita/Idle__1.png" alt="Rosita" width="60px" height="66px">
+            <a class="not-active" id="miLink4" href="/images/avatars/Rosita/Idle__1.png"></a>
             <input type="radio" id="check4" name="radio" onclick="link4()">
             <label for="check4"></label>
         </div>

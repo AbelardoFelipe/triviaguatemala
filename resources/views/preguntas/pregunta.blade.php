@@ -13,7 +13,7 @@
                             <span class="dialog">¡No es Correcto! Intenta otra vez.</span>
                         </div>                        
                     </div>
-                    <canvas id="boy" width="300" height="500"></canvas>
+                    <canvas id="boy" width="500" height="500"></canvas>
                 </div>
                 <div class="preguntas-display">
                     <h2 data-user-numero-pregunta="{{$contador ?? 1}}">{{$preguntasArray['pregunta']}}</h2>

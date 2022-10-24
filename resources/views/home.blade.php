@@ -3,7 +3,8 @@
 @section('content')
 <div class="dashboard">
     <div class="dash-1">
-        <canvas id="boy" width="300" height="500"></canvas>
+        <img src="" id="humor_personaje" alt="humor">
+        <canvas id="boy" width="500" height="500"></canvas>
     </div>
     <div class="dash-2">
         @php

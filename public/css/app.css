@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
 :root {
     --azul: #049DD9;
     --celeste: #04B2D9;
@@ -139,6 +141,12 @@ nav{
     text-decoration: none;
     font-size: 7rem;
     color: green;
+}
+.dash-2 a i{
+    transition: all 0.2s 0.1s;
+}
+.dash-2 a i:hover {
+    transform: scale(1.25);
 }
 .menu-datos{
     display: flex;
@@ -462,4 +470,13 @@ a {
 
 .option input:checked ~ label::after {
     opacity: 1;
+}
+
+#humor_personaje{
+    position: absolute;
+    width: 110px;
+    background: var(--azul);
+    padding: 15px;
+    border-radius: 30px;
+    top: 150px;
 }
