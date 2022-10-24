@@ -7,12 +7,8 @@
            
     </div>
     <div class="dash-2">
-        @empty($pregunta)
-            <a href="{{URL::to('/preguntas/1')}}"><i class='fas fa-play-circle'></i> </a>
-        @endempty
-        
         @if($pregunta <10)
-            @php($contador = $pregunta);
+            @php($contador = $pregunta)
             <a href="{{URL::to('/preguntas/'.++$contador)}}"><i class='fas fa-play-circle'></i> </a>
         @elseif($pregunta == 10 && $aprobado == 10)
                 <span>Ganaste</span>
