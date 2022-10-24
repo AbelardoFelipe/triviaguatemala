@@ -25,6 +25,7 @@ body{
     background-size: cover;
     display: grid;
     place-items: center;
+    margin: 0;
 }
 nav{
     background: var(--azul);
