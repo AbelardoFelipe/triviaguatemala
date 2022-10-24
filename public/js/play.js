@@ -19,10 +19,10 @@ BTNS_RESPONSE.forEach(btn => {
 let siguiente_e = btn.nextSibling;
 
 btn.addEventListener("click", ()=>{
+    playSoundBtn();
     let is_correct = btn.dataset.isCorrect;
     
-    if(is_correct == 1){
-        playSoundBtn();
+    if(is_correct == 1){        
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-check");
         siguiente_e.classList.add("pregunta-ok");
@@ -45,8 +45,7 @@ btn.addEventListener("click", ()=>{
             BTN_NEXT_QUESTION.disabled=false;
         }          
         
-    }else if (is_correct == 0){
-        playSoundBtn();
+    }else if (is_correct == 0){        
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-times");
         siguiente_e.classList.add("pregunta-error");
