@@ -81,11 +81,11 @@
                             <div class="menu-datos-2A">
                                 <p>Nivel</p>   
                                 <i class="fas fa-trophy"></i>
-                                <p data-user-nivel="{{ $punteo[0]->nivel ?? 1}}" data-user-numero_pregunta="{{ $punteo[0]->numero_pregunta ?? 0}}"><span id="show-nivel">{{ $pregunta ?? 0}}</span>/10</p>
+                                <p data-user-nivel="{{ $punteo[0]->nivel ?? 1}}" data-user-numero_pregunta="{{ ++$pregunta ?? 1}}"><span id="show-nivel">@if($pregunta ?? 1 <=10 ) {{ $pregunta}} @else {{ $pregunta--}} @endif</span>/10</p>
                             </div> 
                             <div class="menu-datos-2B">
                                 <div id="progressBar">
-                                    <div id="progressBarFill"></div>     
+                                    <div data-user-aprobado="{{$aprobado}}" id="progressBarFill"></div>     
                                 </div>
                             </div>
                         </div>                            
