@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.acceso')
 
 @section('content')
 <div id="form-login-register">
-    <div class="contentform">
+    <div class="contentformreset">
         <form method="POST" action="{{ route('password.email') }}">
             <div class="container">
                 <h1 class="titleregister"> <strong> Recuperar contraseña </strong> </h1>

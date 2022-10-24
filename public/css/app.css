@@ -11,10 +11,20 @@
 }
 
 body{
+    width: 100%;
+    height: 100%;
     background: url(../images/fondo.jpg?7a7c612dae986cdcfbde57c39e802258) no-repeat  center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
+}
+.body {
+    width: 100%;
+    height: 100vh;
+    background: url(../images/fondo_blue.jpg?7a7c612dae986cdcfbde57c39e802258) no-repeat  center center fixed;
+    background-size: cover;
+    display: grid;
+    place-items: center;
 }
 nav{
     background: var(--azul);
@@ -241,6 +251,7 @@ nav{
     border-radius: 5px;
     width: 400px;
 }
+
 .contentformreset {
     background-color: white;
     text-align: center;
@@ -273,7 +284,7 @@ nav{
     color: gray;
 }
 
-.contentform i  {
+.contentformreset i  {
     padding-top: 7.5px;
     height: 25px;
     width: 30px;

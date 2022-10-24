@@ -57,7 +57,6 @@
                     <div class="menu-user">
                         <a id="" data-user-id="{{ Auth::user()->id}}" class="{{Auth::user()->apellido}}" href="#" role="button" >
                             {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
-                            {{-- <img src="{{ Auth::user()->avatar }}" alt="avatar" width="60px" height="66px"> --}}
                             <input type="hidden" id="avatar-seleccionado" value="{{ Auth::user()->avatar }}">
                         </a>
                     </div>
@@ -96,7 +95,7 @@
         @auth
         <input type="hidden" id="last_loggin" value="{{ Auth::user()->last_loggin }}">
         @endauth
-        <main class="py-4">
+        <main class="">
             @yield('content')            
         </main>
     </div>
