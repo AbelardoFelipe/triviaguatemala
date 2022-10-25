@@ -144,10 +144,11 @@ async function refreshPunto(){
    }
 
    function playSoundBtn() {
-    let audio = document.getElementById('btn-click');
+    let audio = document.getElementById('btn-click-sound');
     if (!audio) return; //We exit the function if there is no sound to play
     audio.currentTime = 0; //We rewind the track if it is currently been playing.
     audio.play();
     audio.classList.add('playing');
+    console.log(audio);
 }
 
