@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-        <div class="container-preguntas">    
+        <div class="container-audio-play">
+            <i id="vol-active" class="fas fa-volume-up volume"></i>
+            <i id="vol-stop" class="fas fa-volume-mute"></i>           
+        </div>
+        <div class="container-preguntas">        
             <div class="container-play">                                           
                 <div class="avatar-display">
                     <h1>¡Juguemos!</h1>
