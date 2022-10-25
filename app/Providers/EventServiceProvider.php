@@ -31,7 +31,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Event::listen(\Illuminate\Auth\Events\Login::class, function ($event) {
+        Event::listen(\Illuminate\Auth\Events\Logout::class, function ($event) {
             $usuario = User::find(Auth::id());
             $usuario->last_loggin = Carbon::now()->toDateTimeString();
             $usuario->save();
