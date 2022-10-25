@@ -10,12 +10,9 @@ const PROGRES_BAR = document.getElementById('progressBarFill');
 const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
 const BTN_PLAY = document.querySelectorAll('i[data-music]');
 const MUSIC_GAME = document.getElementById('music-background');
-//console.log(BTN_PLAY);
 
 BTN_PLAY.forEach(btn => {
   btn.addEventListener("click", ()=>{
-    console.log(BTN_PLAY);
-    console.log(MUSIC_GAME);
     if(btn.id == "play"){
         MUSIC_GAME.pause();
         btn.style.display="none";
@@ -40,10 +37,11 @@ BTNS_RESPONSE.forEach(btn => {
 let siguiente_e = btn.nextSibling;
 
 btn.addEventListener("click", ()=>{
-    playSoundBtn();
+    
     let is_correct = btn.dataset.isCorrect;
     
-    if(is_correct == 1){        
+    if(is_correct == 1){
+        playSoundBtnYes();     
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-check");
         siguiente_e.classList.add("pregunta-ok");
@@ -66,7 +64,8 @@ btn.addEventListener("click", ()=>{
             BTN_NEXT_QUESTION.disabled=false;
         }          
         
-    }else if (is_correct == 0){        
+    }else if (is_correct == 0){    
+        playSoundBtnNo();    
         siguiente_e.classList.add("fas");
         siguiente_e.classList.add("fa-times");
         siguiente_e.classList.add("pregunta-error");
@@ -117,7 +116,6 @@ await fetch('/preguntas', {
 .then(function (response) {
     return response.json();
 }).then(function (data) {
-    //console.log('Async Store', data);
 });
 }
 
@@ -139,12 +137,19 @@ async function refreshPunto(){
     let fill = (data[1]*10)+'%';
     PROGRES_BAR.style.width=fill;
     SHOW_NIVEL.textContent=data[1];
-       //console.log('Async Refresh', data);
    });
    }
 
-   function playSoundBtn() {
-    let audio = document.getElementById('btn-click-sound');
+   function playSoundBtnNo() {
+    let audio = document.getElementById('btn-click-sound-no');
+    if (!audio) return; //We exit the function if there is no sound to play
+    audio.currentTime = 0; //We rewind the track if it is currently been playing.
+    audio.play();
+    audio.classList.add('playing');
+}
+
+function playSoundBtnYes() {
+    let audio = document.getElementById('btn-click-sound-yes');
     if (!audio) return; //We exit the function if there is no sound to play
     audio.currentTime = 0; //We rewind the track if it is currently been playing.
     audio.play();
