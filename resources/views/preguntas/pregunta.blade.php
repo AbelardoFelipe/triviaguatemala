@@ -29,7 +29,7 @@
                         @endif
                     </div>
                     <audio id="btn-click" src="{{ asset('sound/008864060_prev.mp3') }}" type="audio/mp3"></audio>
-                    <audio id="btn-click" src="{{ asset('sound/inquiring-discovery-117953.mp3') }}" type="audio/mp3" autoplay></audio>
+                    <audio id="music-background" src="{{ asset('sound/inquiring-discovery-117953.mp3') }}" type="audio/mp3" autoplay></audio>
                 </div>
             </div>
         </div>
