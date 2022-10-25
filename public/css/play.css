@@ -145,3 +145,30 @@
 .avatar-active{
     display: block !important;
 }
+
+.container-audio-play{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    padding-right: 1rem;
+}
+
+.container-audio-play i{ 
+    padding: 1rem;
+    font-size: 1rem;
+    margin: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-color: #049dd9;
+    color: #ffffff;
+}
+
+.container-audio-play i:hover{
+    border: 1px solid #ffffff;
+} 
+
+.container-audio-play i:nth-child(2){
+    background-color: #cacacab0;
+    color: #049dd9;
+    display: none;
+} 

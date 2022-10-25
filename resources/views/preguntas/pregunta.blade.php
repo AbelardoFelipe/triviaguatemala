@@ -2,8 +2,8 @@
 
 @section('content')
         <div class="container-audio-play">
-            <i id="vol-active" class="fas fa-volume-up volume"></i>
-            <i id="vol-stop" class="fas fa-volume-mute volume"></i>           
+            <i id="play" data-music="" class="fas fa-volume-up"></i>
+            <i id="stop" data-music="" class="fas fa-volume-mute"></i>           
         </div>
         <div class="container-preguntas">        
             <div class="container-play">                                           

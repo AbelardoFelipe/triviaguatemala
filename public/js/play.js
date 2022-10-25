@@ -8,6 +8,27 @@ const SHOW_PUNTOS = document.getElementById('show-puntos');
 const SHOW_NIVEL = document.getElementById('show-nivel');
 const PROGRES_BAR = document.getElementById('progressBarFill');
 const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
+const BTN_PLAY = document.querySelectorAll('i[data-music]');
+const MUSIC_GAME = document.getElementById('music-background');
+//console.log(BTN_PLAY);
+
+BTN_PLAY.forEach(btn => {
+  btn.addEventListener("click", ()=>{
+    console.log(BTN_PLAY);
+    console.log(MUSIC_GAME);
+    if(btn.id == "play"){
+        MUSIC_GAME.pause();
+        btn.style.display="none";
+        BTN_PLAY[1].style.display="block";
+    }
+
+    if(btn.id == "stop"){
+        MUSIC_GAME.play();
+        btn.style.display="none";
+        BTN_PLAY[0].style.display="block";
+    }
+  })  
+});
 
 progresBar();
 function progresBar(){
@@ -129,3 +150,4 @@ async function refreshPunto(){
     audio.play();
     audio.classList.add('playing');
 }
+
