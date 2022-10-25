@@ -154,6 +154,5 @@ function playSoundBtnYes() {
     audio.currentTime = 0; //We rewind the track if it is currently been playing.
     audio.play();
     audio.classList.add('playing');
-    console.log(audio);
 }
 
