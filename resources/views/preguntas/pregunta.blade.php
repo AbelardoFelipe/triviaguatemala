@@ -3,7 +3,7 @@
 @section('content')
         <div class="container-audio-play">
             <i id="vol-active" class="fas fa-volume-up volume"></i>
-            <i id="vol-stop" class="fas fa-volume-mute"></i>           
+            <i id="vol-stop" class="fas fa-volume-mute volume"></i>           
         </div>
         <div class="container-preguntas">        
             <div class="container-play">                                           
@@ -32,8 +32,8 @@
                             <button id="btn-siguiente-pregunta" type="button" class="btn-siguiente-pregunta" onclick="window.location.href='{{URL::to('/preguntas/'.$contador)}}'" disabled>Siguiente</button>                                                    
                         @endif
                     </div>
-                    <audio id="btn-click" src="{{ asset('sound/008864060_prev.mp3') }}" type="audio/mp3"></audio>
-                    <audio id="music-background" src="{{ asset('sound/inquiring-discovery-117953.mp3') }}" type="audio/mp3" autoplay></audio>
+                    <audio id="btn-click-sound" src="{{ asset('sound/008864060_prev.mp3') }}" type="audio/mp3"></audio>
+                    <audio id="music-background" src="{{ asset('sound/inquiring-discovery-117953.mp3') }}" type="audio/mp3" autoplay loop></audio>
                 </div>
             </div>
         </div>
