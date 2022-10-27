@@ -8,18 +8,26 @@ const SHOW_PUNTOS = document.getElementById('show-puntos');
 const SHOW_NIVEL = document.getElementById('show-nivel');
 const PROGRES_BAR = document.getElementById('progressBarFill');
 const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
+
+
 const BTN_PLAY = document.querySelectorAll('i[data-music]');
+//console.log(BTN_PLAY);
 const MUSIC_GAME = document.getElementById('music-background');
+let play_state = localStorage.getItem("pause");
 
 BTN_PLAY.forEach(btn => {
   btn.addEventListener("click", ()=>{
     if(btn.id == "play"){
+        localStorage.setItem("pause", true);
+        nameDisplayCheck();
         MUSIC_GAME.pause();
         btn.style.display="none";
         BTN_PLAY[1].style.display="block";
     }
 
     if(btn.id == "stop"){
+        localStorage.removeItem("pause");
+        nameDisplayCheck();
         MUSIC_GAME.play();
         btn.style.display="none";
         BTN_PLAY[0].style.display="block";
@@ -156,3 +164,20 @@ function playSoundBtnYes() {
     audio.classList.add('playing');
 }
 
+function nameDisplayCheck() {
+    if(play_state){
+        MUSIC_GAME.pause();
+        BTN_PLAY[0].style.display = "none";
+        BTN_PLAY[1].style.display="block";
+    }else{
+        MUSIC_GAME.play();
+        BTN_PLAY[1].style.display = "none";
+        BTN_PLAY[0].style.display="block";
+    }
+}
+
+document.body.onload = nameDisplayCheck;
+window.onload = function music_back(){
+    //MUSIC_GAME.autoplay = true;
+    console.log(MUSIC_GAME);
+}

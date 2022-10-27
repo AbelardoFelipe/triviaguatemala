@@ -34,7 +34,7 @@
                     </div>
                     <audio id="btn-click-sound-no" src="{{ asset('sound/008864060_prev.mp3') }}" type="audio/mp3"></audio>
                     <audio id="btn-click-sound-yes" src="{{ asset('sound/008864068_prev.mp3') }}" type="audio/mp3"></audio>
-                    <audio id="music-background" src="{{ asset('sound/inquiring-discovery-117953.mp3') }}" type="audio/mp3" autoplay loop></audio>
+                    <audio id="music-background" src="{{ asset('sound/inquiring-discovery-117953.mp3') }}" type="audio/mp3" loop></audio>
                 </div>
             </div>
         </div>
