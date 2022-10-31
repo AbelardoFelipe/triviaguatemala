@@ -8,12 +8,10 @@ const SHOW_PUNTOS = document.getElementById('show-puntos');
 const SHOW_NIVEL = document.getElementById('show-nivel');
 const PROGRES_BAR = document.getElementById('progressBarFill');
 const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
-
-
 const BTN_PLAY = document.querySelectorAll('i[data-music]');
-//console.log(BTN_PLAY);
 const MUSIC_GAME = document.getElementById('music-background');
 let play_state = localStorage.getItem("pause");
+
 
 BTN_PLAY.forEach(btn => {
   btn.addEventListener("click", ()=>{
