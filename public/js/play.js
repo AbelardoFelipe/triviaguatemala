@@ -177,5 +177,5 @@ function nameDisplayCheck() {
 document.body.onload = nameDisplayCheck;
 window.onload = function music_back(){
     //MUSIC_GAME.autoplay = true;
-    console.log(MUSIC_GAME);
+    //console.log(MUSIC_GAME);
 }
