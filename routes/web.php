@@ -36,3 +36,5 @@ Route::get('/perfil', [PerfilController::class, 'editPerfil'])->name('editPerfil
 Route::post('perfil/{id}', [PerfilController::class, 'updatePerfil'])->name('updatePerfil')->middleware('auth');
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth');
+
+Route::get('/configuracion', [App\Http\Controllers\ConfigController::class, 'index'])->name('index')->middleware('auth');
