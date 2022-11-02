@@ -248,6 +248,7 @@ nav{
     margin-top: 15px;
 }
 .contentform {
+    transform: scale(.8);
     background-color: white;
     text-align: center;
     border-radius: 5px;
@@ -255,6 +256,7 @@ nav{
 }
 
 .contentformreset {
+    transform: scale(.8);
     background-color: white;
     text-align: center;
     border-radius: 5px;
@@ -271,13 +273,13 @@ nav{
 .container{
     margin: 25px;
 }
-.name, .apellido, .fecha_nacimiento, .email, .password{
+.name, .apellido, .fecha_nacimiento, .email, .password, .rol{
     width: 100%;
     margin-top: 45px;
     height: 30px;
 }
 
-#name, #apellido, #fecha_nacimiento, #email, #password {
+#name, #apellido, #fecha_nacimiento, #email, #password, .roles {
     width: 80%;
     height: 30px;
     border: none;
@@ -286,7 +288,7 @@ nav{
     color: gray;
 }
 
-.contentformreset i  {
+.contentformreset i, .contentform i  {
     padding-top: 7.5px;
     height: 25px;
     width: 30px;

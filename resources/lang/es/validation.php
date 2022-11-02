@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'required' => 'El campo :attribute es obligatorio.',
+    'required' => 'Este campo es obligatorio.',
     "accepted" => ":Attribute debe ser aceptado.",
     "accepted_if" => ":Attribute debe ser aceptado cuando :other sea :value.",
     "active_url" => ":Attribute no es una URL válida.",
@@ -39,7 +39,7 @@ return [
     "exists" => "El :attribute seleccionado es inválido.",
     "failed" => "Estas credenciales no coinciden con nuestros registros.",
     "file" => "El campo :attribute debe ser un archivo.",
-    "filled" => "El campo :attribute es obligatorio.",
+    "filled" => "Este campo es obligatorio.",
     "gt.array" => "El campo :attribute debe tener más de :value elementos.",
     "gt.file" => "El campo :attribute debe tener más de :value kilobytes.",
     "gt.numeric" => "El campo :attribute debe ser mayor que :value.",
@@ -96,7 +96,7 @@ return [
     "prohibits" => "El campo :attribute prohibe que :other esté presente.",
     "regex" => "El formato de :attribute es inválido.",
     "relatable" => "Este :attribute no se puede asociar con este recurso",
-    "required" => "El campo :attribute es obligatorio.",
+    "required" => "Este campo es obligatorio.",
     "required_array_keys" => "El campo :attribute debe contener entradas para: :values.",
     "required_if" => "El campo :attribute es obligatorio cuando :other es :value.",
     "required_if_accepted" => "El campo :attribute es obligatorio si :other es aceptado.",

@@ -22,6 +22,7 @@ class PerfilController extends Controller
         $user->fecha_nacimiento = $request->fecha_nacimiento;
         $user->password = Hash::make($request->password);
         $user->avatar = $request->avatar;
+        $user->rol = $request->rol;
 
         $user->save();
 

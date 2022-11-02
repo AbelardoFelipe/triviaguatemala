@@ -107,6 +107,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="/js/dash.js"></script>
     <script src="{{ asset('js/play.js') }}"></script>
+    <script src="{{ asset('js/register.js') }}"></script>
     <script type="text/javascript">
         window.CSRF_TOKEN = '{{ csrf_token() }}';//validar token de acceso
     </script>
