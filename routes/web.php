@@ -4,6 +4,8 @@ use App\Http\Controllers\Auth\PerfilController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +34,5 @@ Route::put('/preguntas', [App\Http\Controllers\PreguntaController::class, 'store
 
 Route::get('/perfil', [PerfilController::class, 'editPerfil'])->name('editPerfil')->middleware('auth');
 Route::post('perfil/{id}', [PerfilController::class, 'updatePerfil'])->name('updatePerfil')->middleware('auth');
+
+Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth');

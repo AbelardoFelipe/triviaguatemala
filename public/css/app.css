@@ -53,6 +53,7 @@ nav{
     border: 1px solid black;
     padding: 10px;
     top: 65px;
+    z-index: 100;
 }
 .menu-lateral ul li:hover{
     background-color: var(--celeste);
@@ -491,4 +492,19 @@ a {
     padding: 15px;
     border-radius: 30px;
     top: 150px;
+}
+
+.mi-data-table{
+    margin: 50px auto;
+    width: 90%;
+    background: var(--cafes);
+}
+.mi-data-table tbody tr:hover{
+    background: #fff;
+}
+.boton-ver-datatable{
+    background-color: var(--azul);
+    padding: 5px 20px;
+    border-radius: 15px;
+    color: white;
 }
