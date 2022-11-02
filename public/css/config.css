@@ -1,11 +1,16 @@
+:root {
+    --color-green: #00a878;
+    --color-red: #d8d8d8;
+    --color-button: #fdffff;
+    --color-black: #000;
+}
+
 .container-configuracion{
     width: 100%;
     height: 100vh;
 display: flex;
 justify-content: center;
 align-items: center;
-border: 1px solid red;
-
 }
 
 .config-form{
@@ -15,3 +20,36 @@ border: 1px solid red;
     background-color: #ffffff;
     border-radius: 10px;
 }
+
+.switch-button {
+    display: inline-block;
+}
+.switch-button .switch-button__checkbox {
+    display: none;
+}
+.switch-button .switch-button__label {
+    background-color: var(--color-red);
+    width: 2.2rem;
+    height: 1.5rem;
+    border-radius: 3rem;
+    display: inline-block;
+    position: relative;
+}
+.switch-button .switch-button__label:before {
+    transition: .2s;
+    display: block;
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--color-button);
+    content: '';
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px 1px var(--color-black);
+}
+.switch-button .switch-button__checkbox:checked + .switch-button__label {
+    background-color: var(--color-green);
+}
+.switch-button .switch-button__checkbox:checked + .switch-button__label:before {
+    transform: translateX(1rem);
+}
+
