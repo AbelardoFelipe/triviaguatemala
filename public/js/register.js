@@ -10,10 +10,10 @@ const APP = {
                     APP: SW = registration.installing ||
                         registration.waiting ||
                         registration.active;
-                    console.log("service worker registrado");
+                    //console.log("service worker registrado");
                 });
         } else {
-            console.log('service worker no esta soportado');
+            //console.log('service worker no esta soportado');
         }
     },
 }
