@@ -6,13 +6,24 @@ use App\Models\update;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Pregunta;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PerfilController extends Controller
 {
     // Editar perfil del usuario
     public function editPerfil () {
         $user = update::all();
-        return view('auth.perfil', compact('user'));
+
+        $id_auth = Auth::id();
+        $punteoArray = Pregunta::all();
+        $punteo = json_decode($punteoArray);    
+        $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
+        $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta');
+        $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();
+
+        return view('auth.perfil', compact('user','punteo','punto','pregunta','aprobado'));
     }
 
     public function updatePerfil (Request $request) {
