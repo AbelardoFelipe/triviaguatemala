@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\Cache;
 class PreguntaController extends Controller
 {
 
-    /* protected $preguntas;
-
-    public function __construct(Pregunta $preguntas){
-        $this->preguntas = $preguntas;
-    } */
-
     /**
      * Display a listing of the resource.
      *
@@ -39,8 +33,6 @@ class PreguntaController extends Controller
             Cache::put('preguntasArray',$preguntasArray);
         }
 
-        /* $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
-        $preguntasArray = $preguntas->json(); */
         $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
         $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta'); 
         $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();    
@@ -113,11 +105,7 @@ class PreguntaController extends Controller
         $id_auth = Auth::id();
         //---------------------------------------------
 
-        
-
-        if($id <= 10){
-           /*  $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
-            $preguntasArray = $preguntas->json(); */
+        if($id <= 10){           
             if(Cache::has($id)){
                 $preguntasArray = Cache::get($id);
             }else{
@@ -132,9 +120,7 @@ class PreguntaController extends Controller
             $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();       
             return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado'));
         }else{
-            $id = 1;  
-            /* $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
-            $preguntasArray = $preguntas->json(); */
+            $id = 1;             
             if(Cache::has($id)){
                 $preguntasArray = Cache::get($id);
             }else{
