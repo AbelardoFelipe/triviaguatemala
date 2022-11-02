@@ -15,5 +15,7 @@ switch_sound_efect.addEventListener('click',()=>{
 })
 
 cache_time.addEventListener('click', ()=>{
-    console.log(cache_time.valueAsNumber);
+    //console.log(cache_time.valueAsNumber);
+    localStorage.setItem('cache_time',cache_time.valueAsNumber);
+    console.log(localStorage.getItem('cache_time'));
 })
