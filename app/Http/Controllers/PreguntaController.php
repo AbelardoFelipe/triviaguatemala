@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class PreguntaController extends Controller
 {
@@ -29,8 +30,17 @@ class PreguntaController extends Controller
         // Get the currently authenticated user's ID...
         $id_auth = Auth::id();
         //---------------------------------------------
-        $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
-        $preguntasArray = $preguntas->json();
+
+        if(Cache::has('preguntasArray')){
+            $preguntasArray = Cache::get('preguntasArray');
+        }else{
+            $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
+            $preguntasArray = $preguntas->json();
+            Cache::put('preguntasArray',$preguntasArray);
+        }
+
+        /* $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
+        $preguntasArray = $preguntas->json(); */
         $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
         $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta'); 
         $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();    
@@ -103,9 +113,19 @@ class PreguntaController extends Controller
         $id_auth = Auth::id();
         //---------------------------------------------
 
+        
+
         if($id <= 10){
-            $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
-            $preguntasArray = $preguntas->json();
+           /*  $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
+            $preguntasArray = $preguntas->json(); */
+            if(Cache::has($id)){
+                $preguntasArray = Cache::get($id);
+            }else{
+                $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
+                $preguntasArray = $preguntas->json();
+                Cache::put($id,$preguntasArray);
+            }
+
             $contador = $id;
             $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
             $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta');
@@ -113,8 +133,15 @@ class PreguntaController extends Controller
             return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado'));
         }else{
             $id = 1;  
-            $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
-            $preguntasArray = $preguntas->json();
+            /* $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
+            $preguntasArray = $preguntas->json(); */
+            if(Cache::has($id)){
+                $preguntasArray = Cache::get($id);
+            }else{
+                $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
+                $preguntasArray = $preguntas->json();
+                Cache::put($id,$preguntasArray);
+            }
             $contador = $id;
             $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
             $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta');
