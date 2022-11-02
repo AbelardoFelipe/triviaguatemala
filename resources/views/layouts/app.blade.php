@@ -22,6 +22,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/play.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/config.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -42,7 +43,7 @@
                             <li><a href="{{ url('/perfil') }}"><i class="fas fa-user"> </i>  <p>Mi perfil</p></a></li>
                             <li><a href="#"><i class="fas fa-search"> </i> <p>Buscar amigos</p></a></li>
                             <li><a href="{{ url('/users') }}"><i class="fas fa-chart-bar"> </i> <p>Ranking jugadores</p></a></li>
-                            <li><a href="#"><i class="fas fa-cog"> </i> <p>Configuraciones</p></a></li>
+                            <li><a href="{{ url('/configuracion') }}"><i class="fas fa-cog"> </i> <p>Configuración</p></a></li>
                             <li>
                                 <a class="" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt"></i><p>{{ __('Cerrar sesion') }}</p>
