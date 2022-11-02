@@ -19,6 +19,4 @@ self.addEventListener('install', e =>{
                 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css'
             ]);
         });
-
-
 })
