@@ -19,6 +19,8 @@
                     </div>
                     <canvas id="boy" width="500" height="500"></canvas>
                 </div>
+
+                @if($punto < 50)
                 <div class="preguntas-display">
                     <h2 data-user-numero-pregunta="{{$contador ?? 1}}">{{$contador ?? 1}}. {{$preguntasArray['pregunta']}}</h2>                    
                     <ul class="preguntas-list">
@@ -32,10 +34,19 @@
                             <button id="btn-siguiente-pregunta" type="button" class="btn-siguiente-pregunta" onclick="window.location.href='{{URL::to('/preguntas/'.$contador)}}'" disabled>Siguiente</button>                                                    
                         @endif
                     </div>
-                    <audio id="btn-click-sound-no" src="{{ asset('sound/008864060_prev.mp3') }}" type="audio/mp3"></audio>
-                    <audio id="btn-click-sound-yes" src="{{ asset('sound/008864068_prev.mp3') }}" type="audio/mp3"></audio>
-                    <audio id="music-background" src="{{ asset('sound/inquiring-discovery-117953.mp3') }}" type="audio/mp3" loop></audio>
+                
+                @else
+                     <div id="winner-cup" class="winner-cup">                                        
+                        <img src="{{ asset('images/trofeo.gif') }}" alt="Trofeo del ganador">
+                        <a class="button-respuesta" href="{{ url('/home') }}">Volver</a>                                           
+                    </div>
+                
+                 @endif
+                    
                 </div>
             </div>
         </div>
+        <audio id="btn-click-sound-no" src="{{ asset('sound/008864060_prev.mp3') }}" type="audio/mp3"></audio>
+        <audio id="btn-click-sound-yes" src="{{ asset('sound/008864068_prev.mp3') }}" type="audio/mp3"></audio>
+        <audio id="music-background" src="{{ asset('sound/inquiring-discovery-117953.mp3') }}" type="audio/mp3" loop></audio>
 @endsection

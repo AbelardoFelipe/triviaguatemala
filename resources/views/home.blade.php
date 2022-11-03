@@ -12,7 +12,7 @@
             @php($contador = $pregunta)
             <a href="{{URL::to('/preguntas/'.++$contador)}}"><i class='fas fa-play-circle'></i> </a>
         @elseif($pregunta == 10 && $aprobado == 10)
-                <span>Ganaste</span>
+                <span>¡Felicidades has ganada el Juego!</span>
         @endif        
     </div>
 </div>

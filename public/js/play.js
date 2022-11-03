@@ -11,6 +11,7 @@ const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
 const BTN_PLAY = document.querySelectorAll('i[data-music]');
 const MUSIC_GAME = document.getElementById('music-background');
 let play_state = localStorage.getItem("pause");
+let winner_gif = document.getElementById('winner-cup');
 
 
 BTN_PLAY.forEach(btn => {
@@ -143,6 +144,7 @@ async function refreshPunto(){
     let fill = (data[1]*10)+'%';
     PROGRES_BAR.style.width=fill;
     SHOW_NIVEL.textContent=data[1];
+    winner_gif.style.display="block";
    });
    }
 

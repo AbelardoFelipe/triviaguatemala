@@ -172,3 +172,12 @@
     color: #049dd9;
     display: none;
 } 
+
+.winner-cup{
+    display: flex;
+    flex-direction: column;
+}
+
+.winner-cup a{
+    margin-top: 1.5rem;
+}
