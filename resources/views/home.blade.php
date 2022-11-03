@@ -14,7 +14,7 @@
         @elseif($pregunta == 10 && $aprobado == 10)
                <div class="ganador-trivia">
                     <span>¡Felicidades has ganado el Juego!</span>
-                    <img src="{{ asset('images/medalla.gif') }}" alt="Medalla ganador">
+                    <img src="{{ asset('images/medalla.gif') }}" alt="Medalla ganador">{{-- Pureba --}}
                 </div>               
         @endif        
     </div>
