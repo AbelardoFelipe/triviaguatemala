@@ -181,3 +181,19 @@
 .winner-cup a{
     margin-top: 1.5rem;
 }
+
+.ganador-trivia{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:3rem;
+}
+
+.ganador-trivia span{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.ganador-trivia img{
+    width: 70%;
+}

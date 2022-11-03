@@ -144,7 +144,10 @@ async function refreshPunto(){
     let fill = (data[1]*10)+'%';
     PROGRES_BAR.style.width=fill;
     SHOW_NIVEL.textContent=data[1];
-    winner_gif.style.display="block";
+    if(data[1]==10){
+        window.location.reload()
+    }
+    
    });
    }
 
