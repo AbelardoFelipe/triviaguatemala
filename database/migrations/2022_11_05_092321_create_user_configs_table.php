@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateUserConfigsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('user_configs', function (Blueprint $table) {            
+                $table->engine = 'InnoDB';
+                $table->bigIncrements('id');
+                $table->foreignId('user_id')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+                $table->boolean('notificacion_email')->nullable();
+                $table->boolean('musica_fondo')->nullable();                
+                $table->integer('tiempo_cache')->nullable();
+                $table->string('url_cache')->nullable(); 
+                $table->integer('url_cache_equipo')->nullable();    
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('user_configs');
+    }
+}
