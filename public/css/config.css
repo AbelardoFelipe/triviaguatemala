@@ -15,7 +15,7 @@
 }
 
 .config-form{
-    width: 300px;
+    width: 600px;
     height: auto;
     padding: 2rem;
     background-color: #ffffff;
@@ -27,6 +27,20 @@
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 1rem;
+}
+
+.group-form-admin{
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+}
+
+.group-form-admin label{
+    margin-bottom: 0.5rem;
+}
+
+.group-form-admin input{
+    padding: 0.5rem 0;
 }
 
 .group-form .switch-button{
@@ -77,5 +91,11 @@
 }
 .switch-button .switch-button__checkbox:checked + .switch-button__label:before {
     transform: translateX(0.7rem);
+}
+
+.contenedor-panel-admin{
+    border: 1px solid #cecece;
+    padding: 0.5rem;
+    margin: 1.5rem 0;
 }
 

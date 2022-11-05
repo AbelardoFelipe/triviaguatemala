@@ -1,4 +1,7 @@
 let estado_musica = localStorage.getItem('pause');
+//let form_config = document.getElementById('form-config');
+let form = new FormData(document.getElementById('form-config'));
+console.log(form);
 
 let switch_music_background = document.getElementById('switch-music-background');
 let switch_sound_efect = document.getElementById('switch-sound-efect');
