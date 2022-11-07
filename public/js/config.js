@@ -6,9 +6,9 @@ form_config.addEventListener('submit',(e)=>{
     e.preventDefault();
     
     let datos = new FormData(form_config);
-    /* for (var entrie of datos.entries()) {
+    for (var entrie of datos.entries()) {
         console.log(entrie[0]+ ': ' + entrie[1]); 
-    } */
+    }
     let peticion = {
         headers: {
             'X-CSRF-TOKEN': window.CSRF_TOKEN,
@@ -20,7 +20,7 @@ form_config.addEventListener('submit',(e)=>{
     }
     /* emailLoading.classList.remove("loading-active");
     console.log(emailLoading); */
-    fetch('/configuracion/update',peticion)
+    fetch('/configuracion/store',peticion)
         .then(respuesta => respuesta.json())
         .then(respuesta => {            
             if(respuesta['respuesta'] == true){
@@ -28,6 +28,7 @@ form_config.addEventListener('submit',(e)=>{
                 swal("Éxito!", "Tu correo ha sido enviado!", "success").then((value)=>{
                     location.reload();
                 }); */
+                console.log("llego");
                 console.log(respuesta);
             }else if(respuesta['respuesta'] == false) {
                 /* emailLoading.classList.add("loading-active");

@@ -38,4 +38,4 @@ Route::post('perfil/{id}', [PerfilController::class, 'updatePerfil'])->name('upd
 Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('auth');
 
 Route::get('/configuracion', [App\Http\Controllers\ConfigController::class, 'index'])->name('index')->middleware('auth');
-Route::post('/configuracion/update', [App\Http\Controllers\ConfigController::class, 'update'])->name('update')->middleware('auth');
+Route::post('/configuracion/store', [App\Http\Controllers\ConfigController::class, 'store'])->name('store')->middleware('auth');

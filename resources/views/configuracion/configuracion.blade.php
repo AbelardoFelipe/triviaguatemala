@@ -5,7 +5,8 @@
         <h2>Edita tus configuraciones</h2>                   
             <form id="form-config" class="config-form" action="">
                 <span id="rol" data-rol="{{ Auth::user()->rol}}" class="tipo-rol">{{ Auth::user()->rol}}</span>
-                <input type="hidden" name="user-rol" value="{{ Auth::user()->rol}}">
+                <!-- <input type="hidden" name="user-rol" value="{{ Auth::user()->rol}}"> -->
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
                 <div class="group-form">                    
                     <div class="switch-button">                      
                         <input type="checkbox" name="switch-email" id="switch-email" class="switch-button__checkbox">
