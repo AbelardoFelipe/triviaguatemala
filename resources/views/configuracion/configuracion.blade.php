@@ -24,16 +24,16 @@
                 @if(Auth::user()->rol == "Administrador")
                     <div id="panel-config-admin" class="contenedor-panel-admin">
                     <div class="group-form">                    
-                        <input type="number" name="cache_time" id="cache-time" class="button-cache-time" @isset($cache_time) value=$cache_time @endisset min="0" max="20" step="1" >
+                        <input type="number" name="cache_time" id="cache-time" class="button-cache-time" @isset($cache_time) $cache_time @endisset min="0" max="20" step="1" >
                         <label for="">Actualizar memória cache (20 días máx.).</label>
                     </div>
                     <div class="group-form-admin">
-                        <label for="">Modificar API</label>                    
+                        <label for="">Modificar API {{$url_cache}}</label>                    
                         <input type="url" name="url_cache" id="url-cache" class="box-cache" @isset($url_cache) $url_cache @endisset>                    
                     </div>
                     <div class="group-form-admin">
                     <label for="">Modificar grupo</label>                    
-                        <input type="number" name="url_cache_equipo" id="url-cache-equipo" class="box-team" @isset($url_cache_equipo) value=$url_cache_equipo @endisset>                    
+                        <input type="number" name="url_cache_equipo" id="url-cache-equipo" class="box-team" @isset($url_cache_equipo) value="$url_cache_equipo" @endisset>                    
                     </div>
                     </div> 
                 @endif
