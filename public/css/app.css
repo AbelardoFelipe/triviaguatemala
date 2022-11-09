@@ -356,12 +356,15 @@ nav{
     border-radius: 7px;
 }
 .buttonlogin:hover {
+    cursor: pointer;
     box-shadow: 4px 4px 15px #F2B705;
 }
 .buttonregister:hover {
+    cursor: pointer;
     box-shadow: 4px 4px 15px #04b2d9;
 }
 .buttonreset:hover {
+    cursor: pointer;
     box-shadow: 4px 4px 15px #04b2d9;
 }
 a {
