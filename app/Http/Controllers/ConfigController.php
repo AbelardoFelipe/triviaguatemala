@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Models\Pregunta;
 use App\Models\UserConfigs;
 use Illuminate\Support\Facades\DB;
@@ -21,12 +22,18 @@ class ConfigController extends Controller
 
         $id_auth = Auth::id();
         $punteoArray = Pregunta::all();
-        $punteo = json_decode($punteoArray);    
+        $punteo = json_decode($punteoArray);
         $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
         $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta');
         $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();
 
-        return view('configuracion.configuracion', compact('punteo','punto','pregunta','aprobado'));
+        $switch_email = DB::table('user_configs')->where('user_id', '=', $id_auth)->where('notificacion_email', '=', 1)->orderByDesc('notificacion_email')->limit(1);
+        $switch_music = DB::table('user_configs')->where('user_id', '=', $id_auth)->where('musica_fondo', '=', 1)->orderByDesc('musica_fondo')->limit(1);
+        $cache_time = DB::table('user_configs')->where('user_id', '=', $id_auth)->where('tiempo_cache', '!=', "")->orderByDesc('tiempo_cache')->limit(1);
+        $url_cache = DB::table('user_configs')->where('user_id', '=', $id_auth)->where('url_cache', '!=', "")->orderByDesc('url_cache')->limit(1);
+        $url_cache_equipo = DB::table('user_configs')->where('user_id', '=', $id_auth)->where('url_cache_equipo', '!=', "")->orderByDesc('url_cache_equipo')->limit(1);
+
+        return view('configuracion.configuracion', compact('punteo','punto','pregunta','aprobado','switch_email','switch_music','cache_time','url_cache','url_cache_equipo'));
     }
 
     /**
@@ -47,18 +54,44 @@ class ConfigController extends Controller
      */
     public function store(Request $request)
     {
-        
         $config = new UserConfigs;
-        $config->user_id = $request->user_id;
-        $config->notificacion_email = $request->notificacion_email ?? null;
-        $config->musica_fondo = $request->musica_fondo ?? null;
-        $config->tiempo_cache = $request->tiempo_cache ?? null;
-        $config->url_cache = $request->url_cache ?? null;
-        $config->url_cache_equipo = $request->url_cache_equipo ?? null;
-        
-        dd($config);
-        //$config->save();
-        return true;
+        if($request->user_id !="" || $request->user_id !=null){
+            $config->user_id = $request->user_id;
+        }
+
+        if($request->switch_email !="" || $request->switch_email !=null){
+            
+            $config->notificacion_email = true;
+        }
+
+        if($request->switch_music !="" || $request->switch_music !=null){
+            $config->musica_fondo = true;
+        }
+
+        if($request->cache_time !="" || $request->cache_time !=null){
+            $config->tiempo_cache = $request->cache_time;
+        }
+
+        if($request->url_cache !="" || $request->url_cache !=null){
+            $config->url_cache = $request->url_cache;
+        }
+
+        if($request->url_cache_equipo !="" || $request->url_cache_equipo !=null){
+            $config->url_cache_equipo = $request->url_cache_equipo;
+        }
+        //dd($config);
+        $config->save();
+        $id_auth = Auth::id();
+        $switch_email = DB::table('user_configs')->where('user_id', '=', $id_auth)->where('notificacion_email', '=', 1)->orderByDesc('notificacion_email')->limit(1);
+        $switch_music = DB::table('user_configs')->where('user_id', '=', $id_auth)->where('musica_fondo', '=', 1)->orderByDesc('musica_fondo')->limit(1);
+        $cache_time = DB::table('user_configs')->where('user_id', '=', $id_auth)->where('tiempo_cache', '!=', "")->orderByDesc('tiempo_cache')->limit(1);
+        $url_cache = DB::table('user_configs')->where('user_id', '=', $id_auth)->where('url_cache', '!=', "")->orderByDesc('url_cache')->limit(1);
+        $url_cache_equipo = DB::table('user_configs')->where('user_id', '=', $id_auth)->where('url_cache_equipo', '!=', "")->orderByDesc('url_cache_equipo')->limit(1);
+
+
+
+        //dd($configs);
+        return redirect('configuracion.configuracion');
     }
 
     /**
