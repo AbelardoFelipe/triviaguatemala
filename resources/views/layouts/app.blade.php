@@ -60,6 +60,7 @@
 
                 @auth    
                     <div class="menu-user">
+                        <span>{{ Auth::user()->rol}}</span>
                         <a id="" data-user-id="{{ Auth::user()->id}}" class="{{Auth::user()->apellido}}" href="#" role="button" >
                             {{ Auth::user()->name .' ' .Auth::user()->apellido  }}
                             <input type="hidden" id="avatar-seleccionado" value="{{ Auth::user()->avatar }}">

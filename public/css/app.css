@@ -86,9 +86,16 @@ nav{
 
 .menu-user{ 
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    padding-top: 0.5rem;
 }  
+
+.menu-user span{
+    color: var(--amarillo);
+}
+
 .menu-user a{
     text-decoration: none;
     color: white;

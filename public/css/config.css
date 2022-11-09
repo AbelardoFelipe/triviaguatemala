@@ -14,8 +14,17 @@
     align-items: center;
 }
 
+.tipo-rol{
+    display: block;
+    width: 100%;
+    border-bottom:1px solid #cecece;
+    text-align: center;
+    padding: 0 0 1rem 0;
+    margin-bottom: 1.5rem;
+}
+
 .config-form{
-    width: 300px;
+    width: 600px;
     height: auto;
     padding: 2rem;
     background-color: #ffffff;
@@ -29,11 +38,25 @@
     margin-bottom: 1rem;
 }
 
+.group-form-admin{
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+}
+
+.group-form-admin label{
+    margin-bottom: 0.5rem;
+}
+
+.group-form-admin input{
+    padding: 0.5rem 0;
+}
+
 .group-form .switch-button{
     margin-right: 2rem;
 }
 
-.button-cache-time{
+.button-cache-time, .box-team{
     width: 45px;
     margin-right: 1rem;
 }
@@ -77,5 +100,9 @@
 }
 .switch-button .switch-button__checkbox:checked + .switch-button__label:before {
     transform: translateX(0.7rem);
+}
+
+.contenedor-panel-admin{
+    margin: 1.5rem 0;
 }
 
