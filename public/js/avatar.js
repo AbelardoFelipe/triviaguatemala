@@ -38,7 +38,7 @@ function validar () {
     var alertpassword = document.getElementById('alertpassword');
 
     expresion1 = /^[a-zA-Z\u00C0-\u017F]+$/;
-    //expresion4 = /^[A-Z]+$/i;
+    //expresion4 = /^[A-Z]+$/i;//
     expresion2 = /\w+@\w+\.+([a-z]{2})/;
 
     if (name === "") {
