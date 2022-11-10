@@ -15,7 +15,16 @@ form_config.addEventListener('submit',(e)=>{
     .then(function (response) {
         return response.json();
     }).then(function (data) {
-        console.log(data)
-        window.location.reload();
+console.log(data);
+
+        if(data == true){
+            swal("Éxito!", "Se guardo tu configuración!", "success").then((value)=>{
+                location.reload();
+            });
+        }else{
+            swal("Error!", "No se guardo tu configuración!", "success").then((value)=>{
+                location.reload();
+            });
+        }
     });
 })

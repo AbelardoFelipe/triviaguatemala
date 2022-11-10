@@ -28,11 +28,13 @@ class ConfigController extends Controller
         $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();
 
         $configsArray = DB::table('user_configs')->where('user_id', '=', $id_auth)->orderBy('id', 'DESC')->limit(1)->get(['notificacion_email','musica_fondo','tiempo_cache','url_cache','url_cache_equipo']);
-        $configs = json_decode($configsArray);
+        $configsUser = json_decode($configsArray);
 
-        //dd($configs);
+        $apiArray = DB::table('user_configs')->where('url_cache', '<>', "")->orderBy('id', 'DESC')->limit(1)->get(['tiempo_cache','url_cache','url_cache_equipo']);
+        $apiCache = json_decode($apiArray);
 
-        return view('configuracion.configuracion', compact('punteo','punto','pregunta','aprobado','configs'));
+        //dd($apiCache);
+        return view('configuracion.configuracion', compact('punteo','punto','pregunta','aprobado','configsUser','apiCache'));
     }
 
     /**

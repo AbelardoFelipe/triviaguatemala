@@ -111,6 +111,7 @@
     <script src="{{ asset('js/play.js') }}"></script>
     <script src="{{ asset('js/register.js') }}"></script>
     <script src="{{ asset('js/config.js') }}"></script>
+    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
     <script type="text/javascript">
         window.CSRF_TOKEN = '{{ csrf_token() }}';//validar token de acceso
     </script>

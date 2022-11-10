@@ -32,8 +32,24 @@ class HomeController extends Controller
         $id_auth = Auth::id();
         //---------------------------------------------
         $nivel = 10;
-        $cache_time = 1440;
-        $expiresAt = Carbon::now()->addMinutes($cache_time);
+        $apiArray = DB::table('user_configs')->where('url_cache', '<>', "")->orderBy('id', 'DESC')->limit(1)->get(['tiempo_cache','url_cache','url_cache_equipo']);
+        $apiCache = json_decode($apiArray);
+        //dd($apiCache);
+        if($apiCache == "" || $apiCache == null || $apiCache[0]->url_cache ==""){
+            $time_cache = 20;
+            $api_path = explode("=","http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=",2);
+            $api_new_path = $api_path[0];
+            $api_team = 4;
+            $expiresAt = Carbon::now()->addMinutes($time_cache);
+        }else{
+            $time_cache = $apiCache[0]->tiempo_cache;
+            $api_path = explode("=",$apiCache[0]->url_cache,2);
+            $api_new_path = $api_path[0];
+        
+            $api_team = $apiCache[0]->url_cache_equipo;
+            $expiresAt = Carbon::now()->addMinutes($time_cache);
+        }
+        //dd($apiCache[0]->url_cache);
 
         if(($nivel-9 ) <= $nivel ){       
             if(Cache::has($nivel)){
@@ -42,9 +58,9 @@ class HomeController extends Controller
                 }                        
             }else{
                 for($i=1; $i<=$nivel; $i++){
-                    $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$i.'&grupo=4');
+                    $preguntas = Http::get($api_new_path."=".$i."&grupo=".$api_team);
                     $preguntasArray = $preguntas->json();
-                    Cache::put($i,$preguntasArray, $expiresAt ?? null);
+                    Cache::put($i,$preguntasArray, $expiresAt);
                 }               
             }
         }    
