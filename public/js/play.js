@@ -6,15 +6,13 @@ const NUMERO_PREGUNTA = document.querySelector('h2[data-user-numero-pregunta]');
 const NIVEL = document.querySelector('p[data-user-nivel]');
 const SHOW_PUNTOS = document.getElementById('show-puntos');
 const SHOW_NIVEL = document.getElementById('show-nivel');
-const PROGRES_BAR = document.getElementById('progressBarFill');
-const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
+const PROGRES_BAR_FILL = document.getElementById('progressBarFill');
+//const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
 const MUSIC_GAME = document.getElementById('music-background');
 const MUSIC_STATE = MUSIC_GAME.attributes[1].value;
 const BTN_PLAY = document.querySelectorAll('i[data-music]');
 let play_state = localStorage.getItem("pause");
 let winner_gif = document.getElementById('winner-cup');
-
-console.log(MUSIC_STATE);
 
 if(MUSIC_STATE == 1){
 
@@ -52,8 +50,10 @@ BTN_PLAY.forEach(btn => {
 
 progresBar();
 function progresBar(){
+    const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
     let fill = (PREGUNTA_APROBADO.dataset.userAprobado*10)+'%';
-    PROGRES_BAR.style.width=fill;
+    PROGRES_BAR_FILL.style.width=fill+" !important";
+    console.log(PREGUNTA_APROBADO.dataset.userAprobado*10);
 }
 
 BTNS_RESPONSE.forEach(btn => {
@@ -158,7 +158,7 @@ async function refreshPunto(){
    }).then(function (data) {
     SHOW_PUNTOS.textContent=data[0];
     let fill = (data[1]*10)+'%';
-    PROGRES_BAR.style.width=fill;
+    PROGRES_BAR.style.width=fill+" !important";
     SHOW_NIVEL.textContent=data[1];
     if(data[1]==10){
         window.location.reload()

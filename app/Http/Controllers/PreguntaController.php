@@ -29,7 +29,7 @@ class PreguntaController extends Controller
         $configsMusic = DB::table('user_configs')->where('user_id', '=', $id_auth)->orderBy('id', 'DESC')->limit(1)->get('musica_fondo');
         $userMusic = json_decode($configsMusic);
 
-        dd($userMusic);
+        //dd($userMusic);
         $apiArray = DB::table('user_configs')->where('url_cache', '<>', "")->orderBy('id', 'DESC')->limit(1)->get(['tiempo_cache','url_cache','url_cache_equipo']);
         $apiCache = json_decode($apiArray);
 

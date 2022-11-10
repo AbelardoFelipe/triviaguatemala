@@ -87,9 +87,9 @@
                                 <i class="fas fa-trophy"></i>
                                 <p data-user-nivel="{{ $punteo[0]->nivel ?? 1}}" data-user-numero_pregunta="{{ $pregunta ?? 0}}"><span id="show-nivel">{{$aprobado ?? 0}}</span>/10</p>{{-- @if($pregunta ?? 0 <=10 ) {{ $pregunta ?? 0}} @else {{ ++$pregunta}} @endif --}}
                             </div> 
-                            <div class="menu-datos-2B">
+                            <div class="menu-datos-2B">                                
                                 <div id="progressBar">
-                                    <div data-user-aprobado="{{$aprobado ?? ''}}" id="progressBarFill"></div>     
+                                    <div data-user-aprobado="{{$aprobado ?? 0}}" id="progressBarFill"></div>     
                                 </div>
                             </div>
                         </div>                            
@@ -114,6 +114,13 @@
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
     <script type="text/javascript">
         window.CSRF_TOKEN = '{{ csrf_token() }}';//validar token de acceso
+        progresBar();
+function progresBar(){
+    const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
+    let fill = (PREGUNTA_APROBADO.dataset.userAprobado*10)+'%';
+    PROGRES_BAR_FILL.style.width=fill+" !important";
+    console.log(PREGUNTA_APROBADO.dataset.userAprobado*10);
+}
     </script>
 </body>
 </html>

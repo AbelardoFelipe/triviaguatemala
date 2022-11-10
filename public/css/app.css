@@ -201,10 +201,9 @@ nav{
     background-color: white;
 }
 #progressBarFill {
+    width: 0%;
     height: 0.6em;
     background-color: var(--mostaza);
-    width: 0%;
-
 }
 
 .content {

@@ -10,11 +10,11 @@
     <div class="dash-2">
         @if($pregunta <10)
             @php($contador = $pregunta)
-            <a href="{{URL::to('/preguntas/'.++$contador)}}"><i class='fas fa-play-circle'></i> </a>
+            <a href="{{URL::to('/preguntas/'.++$contador)}}"><i class='fas fa-play-circle'></i></a>
         @elseif($pregunta == 10 && $aprobado == 10)
                <div class="ganador-trivia">
                     <span>¡Felicidades has ganado el Juego!</span>
-                    <img src="{{ asset('images/medalla.gif') }}" alt="Medalla ganador">{{-- Pureba --}}
+                    <img src="{{ asset('images/medalla.gif') }}" alt="Medalla ganador">
                 </div>               
         @endif        
     </div>
