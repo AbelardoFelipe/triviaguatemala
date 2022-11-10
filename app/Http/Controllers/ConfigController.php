@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Models\Pregunta;
 use App\Models\UserConfigs;
 use Illuminate\Support\Facades\DB;
@@ -21,12 +22,19 @@ class ConfigController extends Controller
 
         $id_auth = Auth::id();
         $punteoArray = Pregunta::all();
-        $punteo = json_decode($punteoArray);    
+        $punteo = json_decode($punteoArray);
         $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
         $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta');
         $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();
 
-        return view('configuracion.configuracion', compact('punteo','punto','pregunta','aprobado'));
+        $configsArray = DB::table('user_configs')->where('user_id', '=', $id_auth)->orderBy('id', 'DESC')->limit(1)->get(['notificacion_email','musica_fondo','tiempo_cache','url_cache','url_cache_equipo']);
+        $configsUser = json_decode($configsArray);
+
+        $apiArray = DB::table('user_configs')->where('url_cache', '<>', "")->orderBy('id', 'DESC')->limit(1)->get(['tiempo_cache','url_cache','url_cache_equipo']);
+        $apiCache = json_decode($apiArray);
+
+        //dd($apiCache);
+        return view('configuracion.configuracion', compact('punteo','punto','pregunta','aprobado','configsUser','apiCache'));
     }
 
     /**
@@ -47,17 +55,34 @@ class ConfigController extends Controller
      */
     public function store(Request $request)
     {
-        
         $config = new UserConfigs;
-        $config->user_id = $request->user_id;
-        $config->notificacion_email = $request->notificacion_email ?? null;
-        $config->musica_fondo = $request->musica_fondo ?? null;
-        $config->tiempo_cache = $request->tiempo_cache ?? null;
-        $config->url_cache = $request->url_cache ?? null;
-        $config->url_cache_equipo = $request->url_cache_equipo ?? null;
-        
-        dd($config);
-        //$config->save();
+        if($request->user_id !="" || $request->user_id !=null){
+            $config->user_id = $request->user_id;
+        }
+
+        if($request->switch_email !="" || $request->switch_email !=null){
+            
+            $config->notificacion_email = true;
+        }
+
+        if($request->switch_music !="" || $request->switch_music !=null){
+            $config->musica_fondo = true;
+        }
+
+        if($request->cache_time !="" || $request->cache_time !=null){
+            $config->tiempo_cache = $request->cache_time;
+        }
+
+        if($request->url_cache !="" || $request->url_cache !=null){
+            $config->url_cache = $request->url_cache;
+        }
+
+        if($request->url_cache_equipo !="" || $request->url_cache_equipo !=null){
+            $config->url_cache_equipo = $request->url_cache_equipo;
+        }
+
+        $config->save();
+
         return true;
     }
 
