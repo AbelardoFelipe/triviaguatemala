@@ -72,8 +72,8 @@
                 <i class="fa fa-users"></i>
                 <select class="roles" id="rol" onchange="ShowSelected()" name='rol' required value="{{ Auth::user()->rol }}">
                     <option selected value="#" disabled>Elija el rol</option>
-                    <option value="Jugador" name='rol'>Jugador</option>
-                    <option value="Administrador" name='rol'>Administrador</option>
+                    <option value="Jugador" name='rol' required>Jugador</option>
+                    <option value="Administrador" name='rol' required>Administrador</option>
                 </select>
             </div>
 

@@ -37,7 +37,8 @@ function validar () {
     var alertemail = document.getElementById('alertemail');
     var alertpassword = document.getElementById('alertpassword');
 
-    expresion1 = /^[a-zA-Z\u00C0-\u017F]+$/;
+    expresion1 = /[0-9]/
+    //expresion1 = /^[a-zA-Z\u00C0-\u017F]+$/;
     //expresion4 = /^[A-Z]+$/i;//
     expresion2 = /\w+@\w+\.+([a-z]{2})/;
 
@@ -58,10 +59,10 @@ function validar () {
         return false;
     }
 
-    if (!expresion1.test(name)) {
+    if (expresion1.test(name)) {
         alertname.innerHTML = 'El campo Nombres solo puede llevar letras';
         return false;
-    }else if (!expresion1.test(apellido)) {
+    }else if (expresion1.test(apellido)) {
         alertapellido.innerHTML = 'El campo Apellidos solo puede llevar letras';
         return false;
     }else if (!expresion2.test(email)) {
