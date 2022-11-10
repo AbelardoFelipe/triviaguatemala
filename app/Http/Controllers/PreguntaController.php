@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\update;
 use App\Models\Pregunta;
+use App\Models\UserConfigs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
@@ -25,10 +26,13 @@ class PreguntaController extends Controller
         $id_auth = Auth::id();
         //---------------------------------------------
 
+        $api_path = 'http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=';
+        $api_team = 4;
+
         if(Cache::has('preguntasArray')){
             $preguntasArray = Cache::get('preguntasArray');
         }else{
-            $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=4');
+            $preguntas = Http::get($api_path.$api_team);
             $preguntasArray = $preguntas->json();
             Cache::put('preguntasArray',$preguntasArray);
         }
@@ -105,10 +109,14 @@ class PreguntaController extends Controller
         $id_auth = Auth::id();
         //---------------------------------------------
 
+        $api_path = 'http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=';
+        $api_team = 4;
+
         if($id <= 10){           
             if(Cache::has($id)){
                 $preguntasArray = Cache::get($id);
             }else{
+                $preguntas = Http::get($api_path.$api_team);
                 $preguntas = Http::get('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel='.$id.'&grupo=4');
                 $preguntasArray = $preguntas->json();
                 Cache::put($id,$preguntasArray);
