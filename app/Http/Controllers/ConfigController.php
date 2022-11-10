@@ -80,8 +80,8 @@ class ConfigController extends Controller
         }
 
         $config->save();
-        //dd($configs);
-        return redirect('/configuracion');
+
+        return true;
     }
 
     /**
