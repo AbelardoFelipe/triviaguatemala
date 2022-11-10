@@ -7,7 +7,7 @@ const NIVEL = document.querySelector('p[data-user-nivel]');
 const SHOW_PUNTOS = document.getElementById('show-puntos');
 const SHOW_NIVEL = document.getElementById('show-nivel');
 const PROGRES_BAR_FILL = document.getElementById('progressBarFill');
-//const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
+const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
 const MUSIC_GAME = document.getElementById('music-background');
 const MUSIC_STATE = MUSIC_GAME.attributes[1].value;
 const BTN_PLAY = document.querySelectorAll('i[data-music]');
@@ -50,10 +50,9 @@ BTN_PLAY.forEach(btn => {
 
 progresBar();
 function progresBar(){
-    const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
     let fill = (PREGUNTA_APROBADO.dataset.userAprobado*10)+'%';
-    PROGRES_BAR_FILL.style.width=fill+" !important";
-    console.log(PREGUNTA_APROBADO.dataset.userAprobado*10);
+    let fillBar = fill.toString();
+    PROGRES_BAR_FILL.style.width= fillBar;
 }
 
 BTNS_RESPONSE.forEach(btn => {
@@ -83,8 +82,9 @@ btn.addEventListener("click", ()=>{
                 DIALOG_AVATAR.classList.remove('avatar-active');        
                 DIALOG_AVATAR.children[0].classList.remove('avatar-active');
               }, "2000")
+              
         if(PREGUNTA_APROBADO.dataset.userAprobado < 10){
-            BTN_NEXT_QUESTION.disabled=false;
+            BTN_NEXT_QUESTION.disabled=false;            
         }          
         
     }else if (is_correct == 0){    
@@ -158,7 +158,8 @@ async function refreshPunto(){
    }).then(function (data) {
     SHOW_PUNTOS.textContent=data[0];
     let fill = (data[1]*10)+'%';
-    PROGRES_BAR.style.width=fill+" !important";
+    let fillBar = fill.toString();
+    PROGRES_BAR_FILL.style.width= fillBar;
     SHOW_NIVEL.textContent=data[1];
     if(data[1]==10){
         window.location.reload()

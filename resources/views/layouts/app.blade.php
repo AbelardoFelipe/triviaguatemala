@@ -118,8 +118,8 @@
 function progresBar(){
     const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
     let fill = (PREGUNTA_APROBADO.dataset.userAprobado*10)+'%';
-    PROGRES_BAR_FILL.style.width=fill+" !important";
-    console.log(PREGUNTA_APROBADO.dataset.userAprobado*10);
+    let fillBar = fill.toString();
+    PROGRES_BAR_FILL.style.width= fillBar;
 }
     </script>
 </body>
