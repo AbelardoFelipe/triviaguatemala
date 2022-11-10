@@ -26,6 +26,10 @@ class PreguntaController extends Controller
         // Get the currently authenticated user's ID...
         $id_auth = Auth::id();
         //---------------------------------------------
+        $configsMusic = DB::table('user_configs')->where('user_id', '=', $id_auth)->orderBy('id', 'DESC')->limit(1)->get('musica_fondo');
+        $userMusic = json_decode($configsMusic);
+
+        dd($userMusic);
         $apiArray = DB::table('user_configs')->where('url_cache', '<>', "")->orderBy('id', 'DESC')->limit(1)->get(['tiempo_cache','url_cache','url_cache_equipo']);
         $apiCache = json_decode($apiArray);
 
@@ -47,7 +51,7 @@ class PreguntaController extends Controller
         $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();    
         $contador = 1;
         //dd($punteo);
-        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado'));        
+        return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado','userMusic'));        
     }
 
     /**
@@ -113,6 +117,10 @@ class PreguntaController extends Controller
         // Get the currently authenticated user's ID...
         $id_auth = Auth::id();
         //---------------------------------------------
+        $configsMusic = DB::table('user_configs')->where('user_id', '=', $id_auth)->orderBy('id', 'DESC')->limit(1)->get('musica_fondo');
+        $userMusic = json_decode($configsMusic);
+
+        //dd($userMusic);
 
         $apiArray = DB::table('user_configs')->where('url_cache', '<>', "")->orderBy('id', 'DESC')->limit(1)->get(['tiempo_cache','url_cache','url_cache_equipo']);
         $apiCache = json_decode($apiArray);
@@ -146,7 +154,7 @@ class PreguntaController extends Controller
             $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
             $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta');
             $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();       
-            return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado'));
+            return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado','userMusic'));
         }else{
             $id = 1;             
             if(Cache::has($id)){
@@ -160,7 +168,7 @@ class PreguntaController extends Controller
             $punto = DB::table('puntos')->where('user_id', '=', $id_auth)->where('punto', '=', 5)->sum('punto');
             $pregunta = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->max('numero_pregunta');
             $aprobado = DB::table('puntos')->where('user_id', '=', $id_auth)->where('aprobado', '=', 1)->count();
-            return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado'));
+            return view('preguntas.pregunta', compact('preguntasArray', 'contador','punto','pregunta','aprobado','userMusic'));
         }        
     }
 

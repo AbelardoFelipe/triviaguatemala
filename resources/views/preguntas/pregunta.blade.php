@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+    @if($userMusic[0]->musica_fondo == 1)
+        <div class="container-audio-play">
+        </div>
+    @else
         <div class="container-audio-play">
             <i id="play" data-music="" class="fas fa-volume-up"></i>
             <i id="stop" data-music="" class="fas fa-volume-mute"></i>           
         </div>
+    @endif
         <div class="container-preguntas">        
             <div class="container-play">                                           
                 <div class="avatar-display">
@@ -48,5 +53,11 @@
         </div>
         <audio id="btn-click-sound-no" src="{{ asset('sound/008864060_prev.mp3') }}" type="audio/mp3"></audio>
         <audio id="btn-click-sound-yes" src="{{ asset('sound/008864068_prev.mp3') }}" type="audio/mp3"></audio>
-        <audio id="music-background" src="{{ asset('sound/inquiring-discovery-117953.mp3') }}" type="audio/mp3" loop></audio>
+        @if($userMusic[0]->musica_fondo == 1)
+            <audio id="music-background" data-estado="1" src="" type="audio/mp3"></audio>
+        @else
+        <audio id="music-background" data-estado="0" src="{{ asset('sound/inquiring-discovery-117953.mp3') }}" type="audio/mp3" loop></audio>
+        @endif
+        
+        
 @endsection

@@ -8,11 +8,27 @@ const SHOW_PUNTOS = document.getElementById('show-puntos');
 const SHOW_NIVEL = document.getElementById('show-nivel');
 const PROGRES_BAR = document.getElementById('progressBarFill');
 const PREGUNTA_APROBADO = document.querySelector('div[data-user-aprobado]');
-const BTN_PLAY = document.querySelectorAll('i[data-music]');
 const MUSIC_GAME = document.getElementById('music-background');
+const MUSIC_STATE = MUSIC_GAME.attributes[1].value;
+const BTN_PLAY = document.querySelectorAll('i[data-music]');
 let play_state = localStorage.getItem("pause");
 let winner_gif = document.getElementById('winner-cup');
 
+console.log(MUSIC_STATE);
+
+if(MUSIC_STATE == 1){
+
+}else{
+    if(play_state){
+        MUSIC_GAME.pause();
+        BTN_PLAY[0].style.display = "none";
+        BTN_PLAY[1].style.display="block";
+    }else{
+        MUSIC_GAME.play();
+        BTN_PLAY[1].style.display = "none";
+        BTN_PLAY[0].style.display="block";
+    }
+}
 
 BTN_PLAY.forEach(btn => {
   btn.addEventListener("click", ()=>{
@@ -147,7 +163,6 @@ async function refreshPunto(){
     if(data[1]==10){
         window.location.reload()
     }
-    
    });
    }
 
@@ -168,7 +183,7 @@ function playSoundBtnYes() {
 }
 
 function nameDisplayCheck() {
-    if(play_state){
+    if(localStorage.getItem("pause")){
         MUSIC_GAME.pause();
         BTN_PLAY[0].style.display = "none";
         BTN_PLAY[1].style.display="block";
@@ -177,10 +192,4 @@ function nameDisplayCheck() {
         BTN_PLAY[1].style.display = "none";
         BTN_PLAY[0].style.display="block";
     }
-}
-
-document.body.onload = nameDisplayCheck;
-window.onload = function music_back(){
-    //MUSIC_GAME.autoplay = true;
-    //console.log(MUSIC_GAME);
 }
