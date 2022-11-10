@@ -25,7 +25,7 @@ class CreateUserConfigsTable extends Migration
                 $table->boolean('musica_fondo')->nullable();                
                 $table->integer('tiempo_cache')->nullable();
                 $table->string('url_cache')->nullable()->default('http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo='); 
-                $table->integer('url_cache_equipo')->nullable();    
+                $table->integer('url_cache_equipo')->nullable()->default('4');    
         });
     }
 

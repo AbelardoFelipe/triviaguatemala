@@ -23,16 +23,16 @@
                 @if(Auth::user()->rol == "Administrador")
                     <div id="panel-config-admin" class="contenedor-panel-admin">
                     <div class="group-form">                    
-                        <input type="number" name="cache_time" id="cache-time" class="button-cache-time" @isset($configs[0]->tiempo_cache) value={{$configs[0]->tiempo_cache}} @endisset min="0" max="20" step="1" >
+                        <input type="number" name="cache_time" id="cache-time" class="button-cache-time" @isset($configs[0]->tiempo_cache) value={{$configs[0]->tiempo_cache}} @endisset min="0" max="20" step="1">
                         <label for="">Actualizar memória cache (20 días máx.)</label>
                     </div>
                     <div class="group-form-admin">
                         <label for="">Modificar API</label>                    
-                        <input type="url" name="url_cache" id="url-cache" class="box-cache" @isset($configs[0]->url_cache) value={{$configs[0]->url_cache}} @endisset>                    
+                        <input type="url" name="url_cache" id="url-cache" class="box-cache" @isset($configs[0]->url_cache) value={{$configs[0]->url_cache}} @endisset @empty($configs[0]->url_cache) value='http://ec2-44-203-35-246.compute-1.amazonaws.com/preguntas.php?nivel=1&grupo=' @endempty>                    
                     </div>
                     <div class="group-form-admin">
                     <label for="">Modificar grupo</label>                    
-                        <input type="number" name="url_cache_equipo" id="url-cache-equipo" class="box-team" @isset($configs[0]->url_cache_equipo) value={{$configs[0]->url_cache_equipo}} @endisset>                    
+                        <input type="number" name="url_cache_equipo" id="url-cache-equipo" class="box-team" @isset($configs[0]->url_cache_equipo) value={{$configs[0]->url_cache_equipo}} @endisset @empty($configs[0]->url_cache_equipo) value='4' @endempty min="0" max="20" step="1">                    
                     </div>
                     </div> 
                 @endif
